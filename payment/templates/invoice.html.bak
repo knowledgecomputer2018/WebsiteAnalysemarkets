@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+{% load static %}
+{% block page_content %}
+<htmL lang="en">
+<head>
+	<title>payment crypto invoice html Blockonomics</title>
+	<meta charset="utf=8">
+	<meta name="viewport" content='width=device-width,initial-scale=1">
+	
+	<!--Bootstrap CSS-->
+	
+</head>
+<body>
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<!--base.html-->
+	</nav>
+	<div class="container">
+		<h4 class="title is-4">Order#:{{order_id}}</h4>
+		<hr>
+		<div class="row">
+			<div id="paymentstatus" style="color:blue;display:true;">Payment Status:{{status}}</div>
+				<div class="col-md-6 col-sm-12">
+					<p>Amount:<strong>{{bits}}</strong> BTC = <strong>{{value}}</strong>USD</p>
+					<p>Bitcoin Address :<strong>{{addr}}</strong></p>
+					<a href="bitcoin:{{addr}}?amount={{bits}}">
+						<img src="https://www.bitcoinqrcodemaker.com/api/?style=bitcoin&address={{addr}}&amount={{bits}}&color=1"/>
+					</a>
+				</div>
+				<div class="col-md-6 col-sm-12">
+					<h4 class="subtitle">Order Details:</h4>
+					<table class="table">
+						<tbody>
+							<tr>
+								<td>HD DSLR Image-Himalaya</td>
+								<td>x 1 </td>
+								<td>${{value}}</td>
+							</tr>
+							<tr>
+								<td colspan="2" align=left><strong>Total:</strong></td>
+								<td><strong>${{value}}</strong></td>
+							</tr>
+							<tr>
+								<td colspan="2" align=left><strong>Paid Bitcoin:</strong></td>
+							
+								<td>${{paid}}</td>
+							</tr>
+							
+						</tbody>
+					</table>
+					{% if path %}
+						<div>
+							<img id="my_image" src="{{path}}"
+						</div>
+					{%endif%}
+				</div>
+		</div>
+	</div>
+</body>
+</html>
+{% endblock%}
