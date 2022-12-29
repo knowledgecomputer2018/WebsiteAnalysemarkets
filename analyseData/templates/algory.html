@@ -1,0 +1,1356 @@
+{% extends "base.html" %}
+{% load static %}
+{% block page_content %}
+<html>
+<head>
+
+</head>
+<style>
+body{font-family:arial;margin:20px;text-align:center}
+ table {
+        border-collapse: separate;
+        border-spacing: 0 15px;
+      }
+      th {
+        background-color: #4287f5;
+        color: white;
+      }
+      th,
+      td {
+        width: 1200px;
+        text-align: center;
+        border: 1px solid black;
+        padding: 5px;
+      }
+      h2 {
+        color: #4287f5;
+</style>
+<script>
+
+d = document.getElementById("id_dropDownFilter").value;
+console.log(d)
+
+</script>
+<body>
+	
+	<form action="" method="post">
+        {% csrf_token %}
+		<div class="form-group">
+            {{ form.dropDownFilter }}
+        </div>
+		<div class="form-group">	
+            {{ form.config1 }}
+
+        </div>
+		<div class="form-group">
+            {{ form.config2	 }}
+        </div>
+		<div class="form-group">
+            {{ form.symbol }}
+        </div>
+        <button type="submit" class="btn btn-primary">ارسال</button>
+    </form>
+	
+	<dl>
+<div>
+<h3>ارزهای نوبیتکس </h3>
+<p>{{nobitex_symbols}}</p>
+</div>
+<div id="ResultScanner"  style="background:#75df75;padding:100px;font-size:50px;margin:20px">
+<h4>{{name}} <h4/>
+{% if name == 'PriceRange' %}
+تابع نوبیتکس بازار جهانی بایننس برگرفته شده از وب سایت الگوری
+<p>config1:{{config1}} config2:{{config2}}</p>
+{{ResultScan}}
+{%endif%}
+
+{% if name == 'GetAllMarketsGlobalN' %}
+<table>
+{%for key,value in ResultScan.items%}
+		<tr >
+			<td><b>{{key}}</b> </td>
+		
+		<td>{{value}} </td>
+		</tr>
+		
+		
+{%endfor%}
+</table>
+
+{%endif%}
+{% if name == 'GetTradesN' %}
+<table>
+{%for key in ResultScan%}
+<tr>
+	<td>{{key}} </td>
+</tr>
+	
+{%endfor%}
+</table>
+{%endif%}
+
+
+
+
+{% if name == 'GetOrderbookN' %}
+
+<table>
+{%for key,value in ResultScan.items%}
+		<tr >
+			<td><b>{{key}}</b> </td><td>{{value}} </td>
+		</tr>
+		
+{%endfor%}
+</table>
+
+{%endif%}
+
+{% if name == 'AskSize' %}
+
+<table>
+{%for key,value in ResultScan.items%}
+		<tr >
+			<td>{{key}} </td><td>{{value}} </td>
+		</tr>
+		
+{%endfor%}
+</table>
+{%endif%}
+
+{% if name == 'BidSize' %}
+
+<table>
+{%for key,value in ResultScan.items%}
+		<tr >
+			<td>{{key}} </td><td>{{value}} </td>
+		</tr>
+		
+{%endfor%}
+</table>
+
+{%endif%}
+
+
+
+
+{% if name == 'BidAskRatio' or name == 'AskBidRatio' or name == 'Spread' %}
+
+
+{%for key,value in ResultScan.items%}
+		
+			<b>{{key}} </b>
+			<table>
+			{%for val in value%}
+			<tr >
+				<td>{{val}} </td>
+			</tr>
+			{%endfor%}
+			</table>
+		
+		
+{%endfor%}
+
+{%endif%}
+{% if name == 'TodaysVolume'%}
+
+
+{%for key,value in ResultScan.items%}
+			
+			<b>{{key}} </b>
+			<table>
+			
+			{%for val in value%}
+			<tr>
+			<td>{{val}} </td>
+			{%endfor%}
+			</tr>
+			</table>
+		
+{%endfor%}
+	
+{%endif%}
+
+
+
+
+
+</div>
+<script>
+		var config1 = document.getElementById("id_config1").value;
+		var config2 = document.getElementById("id_config2").value;
+		console.log(config1)
+		console.log(config2)
+		/*
+		config1 = document.getElementById("id_config1")
+		if (config1.style.display === "none") {
+				config1.style.display = "block";
+			  } else {
+				config1.style.display = "none";
+			  }
+			*/
+</script>
+
+
+<div id='PriceRange' style="display:none">
+
+<dl>
+<dt>
+1-
+<b>Price range</b>
+</dt>
+<dd>
+This filter refer to last print on transaction window. User is informed once about particular price. We report another alert once price change 2% up or down from last signal.
+When you set minimum 1$ and maximum 10$, then your scanner will search only coins/tokens with the price between 1$ and 10$. This way you will be able to narrow the number of searched coins/tokens. You can fill only 1 field (min or max) or both. You will be notified again within next 60 minutes or when price change at least 2% up or down.
+</dd>
+<dd>
+رنج قیمت :
+این فیلتر به آخرین چاپ در پنجره تراکنش اشاره دارد. 
+کاربر یک بار از قیمت خاص مطلع می شود. هنگامی که قیمت 2% افزایش یا کاهش نسبت به آخرین س
+یگنال داشته باشد، هشدار دیگری را گزارش می کنیم. وقتی حداقل 1 دلار و حداکثر
+ 10 دلار را تنظیم می کنید، اسکنر شما فقط سکه ها/توکن هایی را با قیمت بین 1 تا 10 
+ دلار جستجو می کند. به این ترتیب می توانید تعداد سکه ها/توکن های جستجو شده را محدود کنید. شما می توانید ف
+قط 1 فیلد (حداقل یا حداکثر) یا هر دو را پر کنید. ظرف 60 دقیقه آینده یا زمانی که قیمت حداقل
+ 2 درصد افزایش یا کاهش یابد، دوباره به شما اطلاع داده خواهد شد.
+ (مترجم گوگل)
+</dd>
+</dl>
+</div>
+
+<div id="AskSize" style="display:none">
+<dl>
+<dt>
+
+2-
+<b>Ask size</b>
+</dt>
+<dd>
+
+This filter refers to the cumulative size of order on best ask on Level 1 window. You can set the amount of minimum 100 BTC so then you will only see cryptos which have at least 100 BTC on best ask. You can set minimum 100 BTC and maximum 200 BTC to see cryptos that have at least 100 BTC and maximum 200 BTC on best ask. Usually seeing bigger than normal size on ask size mean that someone is selling big orders or it is a spoof order. You will be notified again within 5 minutes or when amount change by more than 20% to last signal.
+When you set minimum 10 BTC and maximum 100 BTC, then you will be notified each time scanner will find an order of 10 to 100 BTC on ASK side. You can fill 1 field (min or max) or both.
+</dd>
+<dd>
+2- 
+اندازه درخواست:
+این فیلتر به اندازه تجمعی سفارش در بهترین درخواست در پنجره سطح 1 اشاره دارد. شما می توا
+نید مقدار حداقل 100 بیت کوین را تعیین کنید، بنابراین فقط ارزهای دیجیتالی را
+ خواهید دید که حداقل 100 بیت کوین دارند. می توانید حداقل 100 بیت کوین و
+ حداکثر 200 بیت کوین را تنظیم کنید تا ارزهای دیجیتالی را
+ ببینید که حداقل 100 بیت کوین و حداکثر 200 بیت کوین دارند
+ <b>
+ . معمولاً دیدن سایز بزرگتر از اندازه معمولی در اندازه درخواست به این معنی است که شخصی در حال فروش سفارشات بزرگ است یا این یک
+ سفارش جعلی است. در عرض 5 دقیقه یا زمانی که مقدار بیش از 20٪ به آخرین </b>سیگنال تغییر کن
+ د، دوباره به شما اطلاع داده می شود. هنگامی که حداقل 10 بیت کوی
+ ن و حداکثر 100 بیت کوین را تنظیم می کنید، هر بار که اسکنر سفارشی بین 10 تا 100 بیت کوین را در سمت درخواست پیدا کند به شما ا
+طلاع داده می شود. می توانید 1 فیلد (حداقل یا حداکثر) یا هر دو را پر کنید
+</dd>
+</dl>
+</div>
+<div id="BidSize" style="display:none">
+<dl>
+<dt>
+3-
+<b>Bid size</b>
+</dt>
+<dd>
+This filter refers to the cumulative size of order on best bid on Level 1 window. You can set the amount of minimum 100 BTC so then you will only see cryptos which have at least 100 BTC on best bid. You can set minimum 100 BTC and maximum 200 BTC to see cryptos that have at least 100 BTC and maximum 200 BTC on best bid. Usually seeing bigger than normal size on bid size mean that someone is buying big orders or it is a spoof order.
+When you set minimum 10 BTC and maximum 100 BTC, then you will be notified each time scanner will find an order of 10 to 100 BTC on BID side. You can fill 1 field (min or max) or both.
+</dd>
+<dd>
+ااین فیلتر به اندازه تجمعی سفارش در بهترین پیشنهاد در پنجره سطح 1 اشاره دارد. شما می توا
+نید مقدار حداقل 100 بیت کوین را تعیین کنید، بنابراین فقط ارزهای دیجیتالی را خواهید دید که حداقل 100 بیت کوین در بهترین پیشنهاد دارند. می تو
+انید حداقل 100 بیت کوین و حداکثر 200 بیت کوین را تنظیم کنید تا ارزهای دیجیتالی را ببینید که حداقل 100 بیت کوین و حدا
+کثر 200 بی
+ت کوین در بهترین پیشنهاد دارند. معمولاً دیدن سایز بزرگتر از اندازه معمولی در اندازه پیشنهادی به این معنی اس<b>ت که شخصی در حال خرید سفارش های
+ بزرگ است یا این یک سفارش جعلی است. هنگامی که حداقل 10 بیت کوین و ح</b>داکثر 100 بیت کوین را تنظیم می کنی
+د، هر بار که اسکنر سفارشی بین 10 تا 100 بیت کوین را در سمت پیشنهادی
+ پیدا کند به شما اطلاع داده می شود. می توانید 1 فیلد (حداقل یا حداکثر) یا هر دو را پر کنید.
+</dd>
+</dl>
+
+</div>
+<div id="BidAskRatio" style="display:none">
+<dl>
+<dt>
+4-
+<b>Bid Ask ratio</b>
+</dt>
+<dd>
+This filter show cryptos with specific ratio between Bid and Ask orders on Level 1. If you set ratio = 2, you will be notified about all cryptos which best bid orders are 2 times higher than ask order. You will be notified again within 5 minutes or when amount change by more than 20% to last signal.
+When you set ratio minimum 2.0 and maximum 3.0, then you will be notified each time scanner will find coin/token with cummulative order on best BID 2 to 3 times bigger than cummulative order on best ASK.
+</dd>
+<dd>
+
+این فیلتر کریپتوها را با نسبت مشخصی بین سفارشات پیشنهاد و درخواست در سطح 1 نشان می دهد. 
+<b>
+اگر نسبت = 2 را تنظیم کنید،
+ در مورد همه کریپتوهایی که بهترین سفارشات پیشنهادی 2 برابر بیشتر از سفارش درخواستی هستند مطلع خواهید شد.
+</b>
+ در عرض 5 دقیقه یا زمانی که مقدار بیش از 20٪ به آخرین سیگنال تغییر کند، 
+دوباره به شما اطلاع داده می شود. هنگامی که نسبت را حداقل 2.0 و حداکثر 3.0 تنظیم می کنید، 
+هر بار که اسکنر کوین/توکن را با ترتیب تجمعی در بهترین پینهادی شن 2 تا 3 برابر بزرگتر
+ از ترتیب تجمعی در درخواست بهترین پیدا می کند به شما اطلاع داده می شود.
+
+</dd>
+</dl>
+
+<dl>
+<dt>
+</div>
+
+<div id="AskBidRatio" style="display:none">
+5-
+<b>Ask Bid ratio</b>
+</dt>
+<dd>
+This filter show cryptos with specific ratio between Ask and Bid orders on Level 1. If you set ratio = 2, you will be notified about all cryptos which best Ask orders are 2 times higher than Bid order. You will be notified again within 5 minutes or when amount change by more than 20% to last signal.
+When you set ratio minimum 2.0 and maximum 3.0, then you will be notified each time scanner will find coin/token with cummulative order on best Ask 2 to 3 times bigger than cummulative order on best Bid.
+</dd>
+<dd>
+این فیلتر کریپتوها را با نسبت مشخصی بین سفارشات درخواست و پیشنهاد  در سطح 1 نشان می دهد.
+<b> اگر نسبت = 2 را تنظیم کنید، 
+در مورد همه کریپتوهایی که بهترین سفارشات درخواستی 2 برابر بیشتر
+</b>
+ از سفارش پیشنهادی هستند مطلع خواهید شد. در عرض 5 دقیقه یا زمانی که مقدار بیش از 20٪ به آخرین سیگنال تغییر کند،
+ دوباره به شما اطلاع داده می شود. هنگامی که نسبت را حداقل 2.0 و حداکثر 3.0 تنظیم می کنید،
+ هر بار که اسکنر کوین/توکن را با ترتیب تجمعی در بهترین درخواست 2 تا 3 برابر بزرگتر
+ از ترتیب تجمعی در پیشنهاد بهترین پیدا می کند به شما اطلاع داده می شود
+</dd>
+</dl>
+
+
+<dl>
+<dt>
+</div>
+
+
+<div id="Spread" style="display:none">
+
+6-
+<b>Spread</b>
+</dt>
+<dd>
+Current spread between bid and ask price. You can fill 1 field (min/max) or both. You will be notified again within 5 minutes or when spread change by more than 10% to last signal.
+When you set minimum spread 0.005 BTC, then you will be notified each time scanner will find coin/token with differece between bid and ask price (spread) higher than 0.005 BTC. You can specify both min and max or only one of these fields.
+</dd>
+<dd>
+
+انتشار دادن
+اسپرد جاری بین قیمت اسک و بید .
+ شما می توانید پر کنید 1 فیلد (کمترین /بیشترین) یا هردو. شما اطلاع خواهید شد 
+دوباره درون 5 دقیقه یا زمانی که تغییر اسپرید بیشتر از 10 درصد به آخرین سیگنال . 
+زمانی که شما تنظیم می کنید اسپرید 0.005 بیت کوین پس شما اطلاع خواهید شد هر زمانی که اسکنر خواهد پیدا کرد توکن/کوین
+باتفاوت بین قیمت اسک و بید بالاتر از 0.005 بیت کوین.
+ شما می توانید مشخص کنید هر دو کمترین و بیشترین یا فقط یکی از این فیلد ها.
+
+
+</dd>
+</dl>
+
+</div>
+<div id="TodaysVolume" style="display:none">
+<dl>
+<dt>
+8-
+<b>Today's volume</b>
+</dt>
+<dd>
+This filter refers to today's volume. It is based on volume that is calculated from 00:00 UTC. Users will be notified about cryptos which have specific volume set within 5 minutes or when volume change by more than 20%.
+Today's volume use filter based on each crypto's volume for today. Example: put 25 BTC to see cryptos that have at least 25 BTC volume today.
+</dd>
+<dd>
+
+حجم روزانه 
+این فیلتر به حجم روزانه اشاره می کند .این است مبنای حجم که محاسبه می شود از 00:00 ساعت جهانی . کاربرها اطلاع خواهد شد درباره کریپتوهایی که دارند 
+حجم خاصی درون 5 دقیقه یا زمانی که تغییر حجم بیشتر از 20 درصد است . 
+فیلتر حجم روزانه  استفاده می شود بر مبنای هر حجم کریپتویی در روز . برای مثال اگر قرار دهید 25بیت کوین  می بینید کریپتوهایی که دارند حداقل 25 بیت کوین حجم روزانه .
+
+</dd>
+</dl>
+</div>
+
+<div id='desc' style="display:none">
+<dl>
+<dt>
+Below you can find a list of filters and alerts available in Cryptoscanner. Depending on the version you have purchased, you have access to the number of workspace specified in the settings, scanners onworkspace and limited choice of exchanges or markets.
+If you use the limits assigned to the selected account, an information will appear at the top of the page.
+Below we present a description:
+<dd>
+1. Filters
+2. Alert
+</dd>
+along with an example and a signal icon that will appear on the scanner window. Detailed information on the rules of building a scanner can be found here. We also invite you to visit the YouTube channel.
+</dt>
+</dl>
+
+
+
+
+
+
+
+
+
+<dl>
+<dt>
+7-
+<b>Average daily volume</b>
+</dt>
+<dd>
+This filter refers to average daily volume. Average is based on last 30 daily volume. You will be notified again within 60 minutes or if average daily volume change by 10% up or down.
+Set minimum 10 BTC to see cryptos that have at least 10 BTC average daily volume. Set 10 BTC minimum and 20 BTC maximum to see cryptos that have average volume between 10 do 20 BTC.
+</dd>
+<dd>
+میانگین حجم روزانه
+این فیلتر به میانگین حجم روزانه  اشاره می کند.میانگین است بر مبنای حجم 30 روز اخر. شما اطلاع خواهید شد دوباره
+درون 60 دقیقه یا اگر تغییر میانگین حجم روزانه 10 درصد بالا یا پایین .تنظیم کمترین مقدار 10 بیت کوین تا ببینید کریپتوهایی که دارند حداقل 10 بیت کوین 
+حجم میانگین روزانه . تنظیم کمترین مقدار 10 بیت کوین و 20 بیت کوین حداکثر تا ببینید کریپتوهایی که دارند 
+میانگین حجم بین 10 تا 20 بیت کوین 
+
+</dd>
+</dl>
+
+
+
+
+<dl>
+<dt>
+9-
+<b>1 day volume ratio</b>
+</dt>
+<dd>
+This filter refers to ratio between today’s volume compared to yesterday volume. User will be notified within 1 minute or each time ratio change by more than 10%.
+Set ratio = 2 to see cryptos that have at least 2 times higher volume today compared to yesterday’s volume.
+</dd>
+<dd>
+نرخ حجم 1 روز
+این فیلتر به نرخ بین حجم روزانه در مقایسه با حجم دیروز اشاره می کند .کاربر اطلاع خواهد داد درون 1 دقیقه یا 
+هر زمانی که نرخ تغییر بیشتر از 10 درصد .تنظیم نرخ =2 تا ببینید کریپتوهایی که دارند حداقل 2 مرتبه بزرگتر از حجم روزانه  
+در مقایسه یا حجم دیروز .
+
+</dd>
+</dl>
+
+
+<dl>
+<dt>
+10-
+<b>Relative volume ratio</b>
+</dt>
+<dd>
+This filter compare today’s volume to the yesterday’s volume for this time of a day. User will be notified within 1 minute or each time ratio change by more than 10%.
+Set ratio = 2 to see cryptos that have 2 times higher today’s volume compared to yesterday’s volume for this time of day.
+</dd>
+<dd>
+نرخ حجم نسبی 
+این فیلتر مقایسه می کند حجم امروز به حجم دیروز برای این زمان از روز . کاربر اطلاع خواهد داد درون 1 دقیقه یا هر زمانی که نرخ تغییر 
+بیشتر از 10 درصد است . اگر تنظیم کنید نرخ=2 می بینید کریپتوهایی که دارند 2 مرتبه بزرگتر حجم امروز در مقایسه با حجم دیروز برای این زمان روز 
+
+</dd>
+</dl>
+
+
+<dl>
+<dt>
+11-
+<b>Yesterday volume ratio</b>
+</dt>
+<dd>
+This filter compare yesterday volume to the average volume in last 30 days. This alerts shows unusual activity on specific crypto that might have continuation today. Users will be notified again within next 60 minutes.
+Set ratio = 2 to see cryptos that yesterday’s volume is 2 times higher than the 30 days average volume.
+</dd>
+<dd>
+نرخ حجم دیروز 
+این فیلتر مقایسه می کند حجم دیروز به میانگین حجم در 30 روز گذشته . این هشدار نشان می دهد فعالیت غیر معمول روی 
+کریپتوهای خاص که ممکن است داشته باشند امروز .. . کاربرها اطلاع خواهد شد دوباره درون 60 دقیقه بعدی . 
+تنظیم نرخ =2 می بینید کریپتوهایی که حجم دیروز است 2 مرتبه بزرگتر از میانگین حجم 30 روز
+</dd>
+</dl>
+
+<dl>
+<dt>
+12-
+<b>Volatility 60 minutes</b>
+</dt>
+<dd>
+This filter refers to volatility of the last 60 minutes.60 minutes volatility is the range between high and low of the last 60 minutes candle. This signal is calculated on average volatility from last two 60 minutes candles. Users will be notified again after current candle ends.
+Set minimum to 1$ to see only these cryptos which move at least 1 $ in last two 60 minutes candles.
+</dd>
+<dd>
+نوسان 60 دقیقه ای 
+این فیلتر اشاره می کند به  ... 60 دقیقه قبلی . 60 دقیقه و است رنج بین بالا و پایین 
+آخرین  کندل 60 دقیقه ای
+این سیگنال محاسبه می کند میانگین و ... از اخرین دو کندل  60 دقیقه قبلی .
+کاربرهااطلاع خواهند یافت  دوباره بعد از پایان کندل جاری . تنظیم کمترین به 1 دلار تا 
+ببینیم فقط این کریپتوها که حرکت می کنند حداقل یک دلار در اخرین دوکندل 60 دقیقه ای.
+
+</dd>
+</dl>
+
+<dl>
+<dt>
+13-<b>
+Volatility 15 minutes</b>
+</dt>
+<dd>
+This filter refers to volatility of the last 15 minutes. Volatility is the range between high and low of the last 15 minutes candle. This signal is calculated on average volatility from last four 15 minutes candles. Users will be notified again after current candle ends.
+Set minimum to 1$ to see only these cryptos which move at least 1$ in last 15 minutes candle.
+</dd>
+<dd>
+نوسان 15 دقیقه ای 
+این فیلتر اشاره می کند به نوسان آخرین 15 دقیقه ای .
+نوسان است رنج بین بالا و پایین آخرین کندل 15 دقیقه ای . این سیگنال محاسبه می شود روی 
+میانگین نوسان از آخرین چهار کندل 15 دقیقه ای .
+کاربرها اطلاع خواهد یافت دوباره بعد از کندل جاری که پایان می یابد .
+تنظیم کنید  کمترین به 1 دلار تا ببینید فقط کریپتوهایی که حرکت می کنند 
+حداقل 1 دلار در آخرین کندل 15 دقیقه ای 
+
+</dd>
+</dl>
+
+<dl>
+<dt>
+14-
+<b>1 minute volume ratio</b>
+</dt>
+<dd>
+This filter refers to changes in volume observe on 1 minute candles. Users use to find cryptos with unusual higher amount of volume. This filter compare the volume over the last minute to the average volume in last five 1 minutes candle.
+If you set ratio = 2, you will se cryptos where the volume is 2 times higher than the average in last five 1 minute candles.
+</dd>
+<dd>
+نرخ حجم 1 دقیقه ای 
+این فیلتر اشاره می کند به تغییرات در حجم مشاهده شده روی کندل های 1 دقیقه ای . کاربرها استفاده می کنند 
+تا پیدا کنند کریپتوهایی با مقدار بالاتر غیر معمول از حجم. این فیلتر مقایسه کند حجم روی اخرین دقیقه 
+به میانگین حجم در 5 کندل اخر یک دقیقه ای .اگر شما تنظیم کنید نرخ=2
+شما خواهد دید کریپتوهایی که حجم است 2 مرتبه بالاتر از میانگین در پنج کندل اخر 1 دقیقه ای .
+
+</dd>
+</dl>
+
+<dl>
+<dt>
+15<b>
+5 minutes volume ratio</b>
+</dt>
+<dd>
+This filter refers to changes in volume observe on 5 minutes candles. Users use to find cryptos with unusual higher amount of volume. This filter compare the volume over the last 5 minutes to the average volume in last five 5 minutes candle
+If you set ratio = 2, you will se cryptos where the volume is 2 times higher than the average in last five 5 minutes candles.
+</dd>
+<dd>
+نرخ حجم 5 دقیقه ای 
+این فیلتر اشاره می کند به تغییرات در حجم مشاهده شده روی کندل های 5 دقیقه ای .کاربرها استفاده می کنند تا پیدا کنند 
+کریپتوهایی با مقدار بالاتر غیر معمول از حجم 
+این فیلتر مقایسه می کند حجم روی اخرین 5 دقیقه به میانگین حجم 5 کندل اخر 5 دقیقه ای 
+اگر شما نرخ=2 قرار دهید شما خواهید دید کریپتوهایی که حجم است 2 مرتبه بالاتر از میانگین 
+در 5 کندل اخر 5 دقیقه ای .
+</dd>
+</dl>
+
+<dl>
+<dt>
+16-
+<b>15 minutes volume ratio</b>
+</dt>
+<dd>
+This filter refers to changes in volume observe on 15 minutes candles. Users use to find cryptos with unusual higher amount of volume. This filter compare the volume over the last 15 minutes to the average volume in last five 15 minutes candle
+If you set ratio = 2, you will se cryptos where the volume is 2 times higher than the average in last five 15 minutes candles.
+</dd>
+نرخ حجم 15 دقیقه ای 
+این فیلتر اشاره می کند به تغییرات در حجم مشاهده روی کندل های 15دقیقه ای . کاربرها استفاده می کنند تا پیدا کنند
+کریپتوهایی با مقدار حجم بالای غیر معمول .
+این فیلتر مقایسه می کند حجم روی اخرین 15 دقیقه به میانگین حجم در 5 کندل  اخر 15 دقیقه ای .
+اگر نرخ=2 شما خواهید دید کریپتوهایی که حجم است 2 مرتبه بالاتر از میانگین در 5 کندل اخر 15 دقیقه ای.
+</dl>
+
+<dl>
+<dt>
+17-
+<b>60 minutes volume ratio</b>
+</dt>
+<dd>
+This filter refers to changes in volume observe on 60 minutes candles. Users use to find cryptos with unusual higher amount of volume. This filter compare the volume over the last 60 minutes to the average volume in last five 60 minutes candle
+If you set ratio = 2, you will se cryptos where the volume is 2 times higher than the average in last five 60 minutes candles.
+</dd>
+<dd>
+
+نرخ حجم 60 دقیقه ای 
+این فیتر اشاره مکند به تغییرات در حجم مشاهده شده روی کندل های 60 دقیقه ای . کاربرهای استفاده می کنند تا پیدا کنند کرپیتوهایی با مقدار 
+بالای غیر معمول حجم . این فیلتر مقایسه می کند حجم روی اخرین 60 دقیقه به 
+میانگین حجم در 5 کندل اخر 60 دقیقه ای .اگر شما نرخ=2 قرار دهید شما خواهید دید کریپتوهایی که 
+حجم است 2 مرتبه بالاتر از میانگین در 5 کندل اخر 60 دقیقه ای .
+</dd>
+</dl>
+
+<dl>
+<dt>
+18-
+<b>Average True Range</b>
+</dt>
+<dd>
+Average True Range uses daily candlesticks and estimate the average daily volatility on particular cryptos. It is average true range based on last 10 days average volatility.
+Set minimum 1$ to sse cryptos which moves at least 1 during trading day.
+</dd>
+<dd>
+
+رنج درست میانگین 
+رنج درست میانگین استفاده می شود روی کندل های روزانه و تخمین می زند میانگین نوسان روزانه روی کریپتوهای خاص.
+رنج میانگین درست بر مبنای اخرین 10 روز میانگین نوسان است .
+تنظیم کمترین 1 دلار به دیدن کریپتوهایی که حرکت می کنند حداقل در طی یک روز تجارت.
+</dd>
+</dl>
+
+<dl>
+<dt>
+19-
+<b>Today`s range</b>
+</dt>
+<dd>
+This filter show todays range of particular cryptos. Today’s range is todays high minus today’s low.
+Set minimum 1$ and maximum to 2$ to see cryptos that moves at least 1$ but no more than 2$ during today’s trading session.
+</dd>
+<dd>
+رنج امروز 
+این فیلتر نشان می دهد رنج امروز کریپتوهای خاص. رنج امروز است بالای امروز منهای پایین امروز .تنظیم کمترین به 
+ دلاریک دلار و بیشترین به 25 دلارتا ببینید کریپتوهایی که حرکت می کنند حداقل 1 دلار امام نه بیشتر از 2 دلار در طی فصل تجارت روزانه
+</dd>
+</dl>
+
+<dl>
+<dt>
+20-
+<b>1 minute range</b>
+</dt>
+<dd>
+This filer show cryptos with specific 1 minute intraday range.
+Set minimum 0.2 and maximum 0.3 to see cryptos that moves between 0.2 to 0.3 $ in last 1 minute candle.
+</dd>
+<dd>
+رنج 1 دقیقه ای 
+این فیلتر نشان می دهد کریپتوهایی با محدودهی یک دقیقه ای خاص درون روز.تنظیم حداقل 0.2 و حداکثر 0.3 تا
+ببینیم کریپتوهایی که حرکت می کنند بین 0.2 تا 0.3 دلار در اخرین کندل یک دقیقه ای .
+</dd>
+</dl>
+
+<dl>
+<dt>
+21-
+<b>5 minute range</b>
+</dt>
+<dd>
+This filer show cryptos with specific 5 minutes intraday range.
+Set minimum 0.2 and maximum 0.3 to see cryptos that moves between 0.2 to 0.3 $ in last 5 minutes candle.
+</dd>
+<dd>
+رنج 5 دقیقه ای
+این فیلتر نشان می دهد کریپتوهایی با محدودهی پنج دقیقه ای خاص درون روز.تنظیم حداقل 0.2 و حداکثر 0.3 تا
+ببینیم کریپتوهایی که حرکت می کنند بین 0.2 تا 0.3 دلار در اخرین کندل پنج دقیقه ای
+</dd>
+</dl>
+
+<dl>
+<dt>
+22
+<b>15 minute range</b>
+</dt>
+<dd>
+This filer show cryptos with specific 15 minutes intraday range.
+Set minimum 0.2 and maximum 0.3 to see cryptos that moves between 0.2 to 0.3 $ in last 15 minutes candle.
+</dd>
+<dd>
+
+رنج 15 دقیقه ای
+این فیلتر نشان می دهد کریپتوهایی با محدودهی پانزده  دقیقه ای خاص درون روز.تنظیم حداقل 0.2 و حداکثر 0.3 تا
+ببینیم کریپتوهایی که حرکت می کنند بین 0.2 تا 0.3 دلار در اخرین کندل پانزده  دقیقه ای
+
+</dd>
+</dl>
+
+<dl>
+<dt>
+23-
+<b>60 minute range</b>
+</dt>
+<dd>
+This filer show cryptos with specific 60 minutes intraday range.
+Set minimum 0.2 and maximum 0.3 to see cryptos that moves between 0.2 to 0.3 $ in last 60 minutes candle.
+</dd>
+<dd>
+رنج 60 دقیقه ای
+این فیلتر نشان می دهد کریپتوهایی با محدودهی شصت  دقیقه ای خاص درون روز.تنظیم حداقل 0.2 و حداکثر 0.3 تا
+ببینیم کریپتوهایی که حرکت می کنند بین 0.2 تا 0.3 دلار در اخرین کندل شصت دقیقه ای
+
+</dd>
+</dl>
+
+<dl>
+<dt>
+24
+<b>1 minute % change</b>
+</dt>
+<dd>
+This filter shows how crypto price has change in last 1 minute. This show you how dynamic move is observe on particular crypto.
+Set minimum 2 to see cryptos that moves at least 2% in last 1 minute candle.
+</dd>
+</dl>
+<dd>
+
+درصد تغییر 1دقیقه ای 
+این فیلتر نشان می دهد چگونه قیمت کریپتو تغییر می کند در یک دقیقه گذشته .این نشان می دهد  
+چطور حرکت پویا در یک کریپتو خاص مشاهده می شود.
+حداقل 2 را تنظیم کنید تا کریپتوهایی را ببینید که حداقل 2 درصد در کندل 1 دقیقه ای اخر حرکت می کنند .
+
+</dd>
+<dl>
+<dt>
+25-
+<b>5 minute % change</b>
+</dt>
+<dd>
+This filter shows how crypto price has change in last 5 minutes. This show you how dynamic move is observe on particular crypto.
+Set minimum 2 to see cryptos that moves at least 2% in last 5 minutes candle.
+</dd>
+<dd>
+درصد تغییر 5دقیقه ای 
+این فیلتر نشان می دهد چگونه قیمت کریپتو تغییر می کند در 5 دقیقه گذشته .این نشان می دهد  
+چطور حرکت پویا در یک کریپتو خاص مشاهده می شود.
+حداقل 2 را تنظیم کنید تا کریپتوهایی را ببینید که حداقل 2 درصد در کندل 5 دقیقه ای اخر حرکت می کنند .
+</dl>
+
+<dl>
+<dt>
+26-
+<b>15 minute % change</b>
+</dt>
+<dd>
+This filter shows how crypto price has change in last 15 minutes. This show you how dynamic move is observe on particular crypto.
+Set minimum 2 to see cryptos that moves at least 2% in last 15 minutes candle.
+</dd>
+<dd>
+درصد تغییر 15دقیقه ای 
+این فیلتر نشان می دهد چگونه قیمت کریپتو تغییر می کند در 15 دقیقه گذشته .این نشان می دهد  
+چطور حرکت پویا در یک کریپتو خاص مشاهده می شود.
+حداقل 2 را تنظیم کنید تا کریپتوهایی را ببینید که حداقل 2 درصد در کندل 51 دقیقه ای اخر حرکت می کنند .
+
+</dd>
+</dd>
+</dl>
+
+<dl>
+<dt>
+27-
+<b>60 minute % change</b>
+</dt>
+<dd>
+This filter shows how crypto price has change in last hour. This show you how dynamic move is observe on particular crypto.
+Set minimum 2 to see cryptos that moves at least 2% in last 60 minutes candle.
+</dd>
+<dd>
+درصد تغییر 60دقیقه ای 
+این فیلتر نشان می دهد چگونه قیمت کریپتو تغییر می کند در 60 دقیقه گذشته .این نشان می دهد  
+چطور حرکت پویا در یک کریپتو خاص مشاهده می شود.
+حداقل 2 را تنظیم کنید تا کریپتوهایی را ببینید که حداقل 2 درصد در کندل 51 دقیقه ای اخر حرکت می کنند .
+</dd>
+</dl>
+
+<dl>
+<dt>
+28-
+<b>Daily positive candle</b>
+</dt>
+<dd>
+This show you how many days in a row you can observe consecutive up move on particular crypto. We check only crypto with minimum 3 consecutive up candles.
+Set minimum 5 to see cryptos that have at least 5 consecutive positive daily candles candles.
+</dd>
+<dd>
+
+این نشان می دهد شما چه تعداد روز  متوالی 
+<b>
+ حرکت صعودی متوالی  روی کریپ</b>تو خاص مشاهده کنید.
+ما  فقط کریپتوهایی با حداقل 3 کندل هایی متوالی چک می کنیم.
+  حداقل 5 برای دیدن کریپتوهایی که حداقل 5 کندل مثبت متوالی روزانه دارند،تنظیم کنید 
+</dd>
+</dl>
+
+<dl>
+<dt>
+29-
+<b>1 minute positive candle</b>
+</dt>
+<dd>
+This filter look at a 1 minute intraday candlestick chart to see if the stock price has been moving up and for how long. We check only crypto with minimum 3 consecutive up candles.
+Set minimum 5 to see cryptos that have at least 5 consecutive positive 1 minute candles.
+</dd>
+<dd>
+کندل مثبت یک دقیقه ای 
+این فیلتر  به نمودار کندل 1 دقیقه ای  داخل روزنگاه می کند تا ببیند 
+<b>
+آیا قیمت سهام  (در حال افزایش است) حرکت می کند روبه بالا و برای چقدر طول می کشد .
+</b>
+ما  فقط کریپتو با حداقل 3 کندل متوالی چک می کنیم.
+.حداقل 5 تنظیم می کنیم تا  ببینیم کریپتوهایی که  حداقل 5 کندل 1 دقیقه ای مثبت متوالی  دارند
+</dd>
+</dl>
+
+<dl>
+<dt>
+30-
+<b>5 minutes positive candle</b>
+</dt>
+<dd>
+This filter look at a 5 minutes intraday candlestick chart to see if the stock price has been moving up and for how long. We check only crypto with minimum 3 consecutive up candles.
+Set minimum 5 to see cryptos that have at least 5 consecutive positive 5 minutes candles.
+</dd>
+<dd>
+این فیلتر  به نمودار کندل 5 دقیقه ای  داخل روزنگاه می کند تا ببیند 
+<b>
+آیا قیمت سهام  (در حال افزایش است) حرکت می کند روبه بالا و برای چقدر طول می کشد .
+</b>
+ما  فقط کریپتو با حداقل 3 کندل متوالی چک می کنیم.
+.حداقل 5 تنظیم می کنیم تا ببینیم کریپتوهایی که  حداقل 5 کندل 5 دقیقه ای مثبت متوالی  دارند
+
+</dd>
+</dl>
+
+<dl>
+<dt>
+31-
+<b>15 minutes positive candle</b>
+</dt>
+<dd>
+This filter look at a 15 minutes <b>intraday candlestick chart</b> to see if the stock price has been moving up and for how long. We check only crypto with minimum 3 consecutive up candles.
+Set minimum 5 to see cryptos that have at least 5 consecutive positive 15 minutes candles.
+</dd>
+<dd>
+
+این فیلتر  به نمودار کندل 15 دقیقه ای  داخل روزنگاه می کند تا ببیند 
+<b>
+آیا قیمت سهام  (در حال افزایش است) حرکت می کند روبه بالا و برای چقدر طول می کشد .
+</b>
+ما  فقط کریپتو با حداقل 3 کندل متوالی چک می کنیم.
+.حداقل 5 تنظیم می کنیم تا ببینیم کریپتوهایی که  حداقل 5 کندل 15 دقیقه ای مثبت متوالی  دارند
+</dd>
+</dl>
+
+<dl>
+<dt>
+32-
+<b>60 minutes positive candle</b>
+</dt>
+<dd>
+This filter look at a 60 minutes intraday candlestick chart to see if the stock price has been moving up and for how long. We check only crypto with minimum 3 consecutive up candles.
+Set minimum 5 to see cryptos that have at least 5 consecutive positive 60 minutes candles.
+</dd>
+<dd>
+این فیلتر  به نمودار کندل   60 دقیقه ای  داخل روزنگاه می کند تا ببیند 
+<b>
+آیا قیمت سهام  (در حال افزایش است) حرکت می کند روبه بالا و برای چقدر طول می کشد .
+</b>
+ما  فقط کریپتو با حداقل 3 کندل متوالی چک می کنیم.
+.حداقل 5 تنظیم می کنیم تا ببینیم کریپتوهایی که  حداقل 5 کندل 60 دقیقه ای مثبت متوالی  دارند
+</dd>
+</dl>
+
+<dl>
+<dt>
+33-
+<b>Daily negative candle</b>
+</dt>
+<dd>
+This show you how many days in a row you can observe consecutive down move on particular crypto. We check only crypto with minimum 3 consecutive down candles.
+Set minimum 5 to see cryptos that have at least 5 consecutive negative daily candles.
+</dd>
+<dd>
+کندل منفی روزانه </br>
+این نشان می دهد شما چه تعداد روز متوالی   می توانید  حرکت روبه پایین متوالی روی یک ارز خاص مشاهده کنید
+ ما فقط کریپتو را با حداقل 3 کندل  متوالی پایین بررسی می کنیم.
+ برای دیدن کریپتوهایی که حداقل 5 کندل روزانه منفی متوالی دارند، حداقل 5 را تنظیم کنید.
+
+</dd>
+</dl>
+
+<dl>
+<dt>
+34-
+<b>1 minute negative candle</b>
+</dt>
+<dd>
+This filter look at a 1 minute intraday candlestick chart to see if the stock price has been moving down and for how long. We check only crypto with minimum 3 consecutive down candles.
+Set minimum 5 to see cryptos that have at least 5 consecutive negative 1 minute candles.
+</dd>
+<dd>
+کندل منفی 1 دقیقه ای </br>
+این فیلتر نمودار کندل 1 دقیقه ای داخل روز نگاه می کند تا ببیند برای چه مدت قیمت سهام حرکت روبه پایین بوده است .
+ ما  فقط کریپتویی با حداقل 3 کندل متوالی  روبه پایین چک می کنیم
+ حداقل 5 برای دیدن کریپتوهایی که حداقل 5 کندل   منفی 1 دقیقه ای متوالی دارند تنظیم کنید
+	
+</dd>
+</dl>
+
+<dl>
+<dt>
+35-
+<b>5 minutes negative candle</b>
+</dt>
+<dd>
+This filter look at a 5 minutes intraday candlestick chart to see if the stock price has been moving down and for how long. We check only crypto with minimum 3 consecutive down candles.
+Set minimum 5 to see cryptos that have at least 5 consecutive negative 5 minutes candles.
+</dd>
+<dd>
+کندل منفی 5 دقیقه ای </br>
+این فیلتر نمودار کندل 5 دقیقه ای داخل روز نگاه می کند تا ببیند برای چه مدت قیمت سهام حرکت روبه پایین بوده است .
+ ما  فقط کریپتویی با حداقل 3 کندل متوالی روبه پایین چک می کنیم
+ حداقل 5 برای دیدن کریپتوهایی که حداقل 5 کندل   منفی 5 دقیقه ای متوالی دارند تنظیم کنید
+</dd>
+</dl>
+
+<dl>
+<dt>
+36-
+<b>15 minutes negative candle</b>
+</dt>
+<dd>
+This filter look at a 15 minutes intraday candlestick chart to see if the stock price has been moving down and for how long. We check only crypto with minimum 3 consecutive down candles.
+Set minimum 5 to see cryptos that have at least 5 consecutive negative 15 minutes candles.
+</dd>
+</dl>
+<dd>
+کندل منفی 15 دقیقه ای </br>
+این فیلتر نمودار کندل 15 دقیقه ای داخل روز نگاه می کند تا ببیند برای چه مدت قیمت سهام حرکت روبه پایین بوده است .
+ ما  فقط کریپتویی با حداقل 3 کندل روبه پایین چک می کنیم
+ حداقل 5 برای دیدن کریپتوهایی که حداقل 5 کندل   منفی 15 دقیقه ای متوالی دارند تنظیم کنید</dd>
+<dl>
+<dt>
+37-
+<b>60 minutes negative candle</b>
+</dt>
+<dd>
+This filter look at a 60 minutes intraday candlestick chart to see if the stock price has been moving down and for how long. We check only crypto with minimum 3 consecutive down candles.
+Set minimum 5 to see cryptos that have at least 5 consecutive negative 60 minutes candles.
+</dd>
+<dd>
+کندل منفی 60 دقیقه ای </br>
+این فیلتر نمودار کندل 60 دقیقه ای داخل روز نگاه می کند تا ببیند برای چه مدت قیمت سهام حرکت روبه پایین بوده است .
+ ما  فقط کریپتویی با حداقل 3 کندل روبه پایین چک می کنیم
+ حداقل 5 برای دیدن کریپتوهایی که حداقل 5 کندل   منفی 60 دقیقه ای متوالی دارند تنظیم کنید
+
+</dd>
+</dl>
+
+<dl>
+<dt>
+38-
+<b>% Down Yesterday</b>
+</dt>
+<dd>
+This filter shows you how much down was a particular crypto on yesterday's trading session. If you are looking for a crypto with >10% move down move just simple set minimum to 10%.
+Set minimum to 5 to see cryptos that moved down at least 5% on yesterday’s session.
+</dd>
+</dl>
+<dd>
+درصد کاهش دیروز</br>
+این فیلتر نشان می دهد  که یک کریپتو خاص در فصل ترید یا تجارت دیروز  چه مقدار کاهش داشته است. اگر شما جستجو می کنید 
+یک کریپتو با  بزرگتر از 10 درصد حرکت به سمت پایین هستید  کافی است حداقل آن را به 10 درصد تنظیم کنید .   .
+برای مشاهده کریپتوهایی که در فصل دیرو حداقل 5 درصد کاهش یافته اند ،حداقل راروی 5 تنظیم کنید .
+</dd>
+<dl>
+<dt>
+39-
+<b>% Up Yesterday</b>
+</dt>
+<dd>
+This filter shows you how much up was a particular crypto on yesterday's trading session. If you are looking for a crypto with >10% move up move just simple set minimum to 10%.
+Set minimum to 5 to see cryptos that moved up at least 5% on yesterday’s session.
+</dd>
+</dl>
+<dd>
+ 
+درصد افزایش دیروز</br>
+این فیلتر نشان می دهد   یک کریپتو خاص در فصل ترید یا تجارت دیروز چه مقدار افزایش داشته است. اگر شما جستجو می کنید 
+یک کریپتو با  بزرگتراز 10 درصد حرکت به سمت بالا هستید کافی است حداقل آن را به 10 درصد تنظیم کنید  
+برای مشاهده کریپتوهایی که درفصل دیروز حداقل 5 درصد افزایش یافته اند ،حداقل راروی 5 تنظیم کنید .
+</dd>
+<dl>
+<dt>
+40-
+<b>Average number of prints / trades</b>
+</dt>
+<dd>
+This filter shows you how many trades where made on particular crypto in last 1 minute candle and compare it to the previous average of five 1 minute candles
+Set minimum 5 to see cryptos that have at least 5 times more trades in last 1 minute candle comparing to the average of previous five 1 minute candles.
+</dd>
+</dl>
+<dd>
+میانگین تعداد معامله/تجارت</br>
+این فیلتر به شما نشان می دهد که در کندل 1 دقیقه ای اخر چه تعداد معامله 
+  برروی یک کریپتوی خاص انجام شده است  و  آن را با 
+میانگین قبلی پنج کندل 1 دقیقه ای  مقایسه می کند
+ حداقل 5 را تنظیم کنید تا کریپتوهایی را ببینید که حداقل 5 برابر بیشتر ترید در کندل 1 دقیقه ای آخر دارند در مقایسه 
+با میانگین 5 کندل 1 دقیقه ای قبلی
+</dd>
+<dl>
+<dt>
+41-
+<b>Market Cap</b>
+</dt>
+<dd>
+This filter shows you cryptos with specific range of market capitalization.
+Set minimum to 100 000 to see cryptos that have at least 100 000 $ market cap.
+</dd>
+</dl>
+<dd>
+ارزش بازار</br>
+.این فیلتربه شما  کریپتوهایی با محدوده خاصی از  سرمایه بازار نشان می دهد  . روی  حداقل 100 هزارتنظیم کنید  تا ببینیم رمز ارزهایی  که  حداقل 100 هزار ارزش بازار دارند
+
+</dd>
+<dl>
+<dt>
+42-
+<b>New high</b>
+</dt>
+<dd>
+This alert appear when last transaction is filled on higher price than the rest of transactions in particular interval: 5 minutes, 15 minutes, 60 minutes and one day. Next alert will appear each time that last price is up more than 0.5% when compares to last signal.
+Set new high alert with 5 minutes period to see cryptos which move to new high in 5 minutes interval.
+</dd>
+</dl>
+مقدار های جدید</br>
+این هشدار  زمانی ظاهر می شود که اخرین تراکنش  با قیمت بالاتری  نسبت به بقیه تراکنش ها در بازه زمانی خاص پرمی شود:5دقیقه ای و15 دقیقه
+ای و60 دقیقه ای و یک روز .
+.هر بار که اخرین قیمت در مقایسه با اخرین سیگنال  بیشتر از 0.5 افزایش یافته است هشدار بعدی ظاهر خواهد شد
+برای مشاهده کریپتوهایی که در فاصله زمانی 5 دقیقه به بالاترین حد جدید می رسند،
+هشدار بالای جدید را با دوره 5 دقیقه تنظیم کنید
+
+<dl>
+<dt>
+43-
+<b>New low</b>
+</dt>
+<dd>
+This alert appear when last transaction is filled on lower price than the rest of transactions in particular interval: 5 minutes, 15 minutes, 60 minutes and one day. Next alert will appear each time that last price is down more than 0.5% when compares to last signal.
+Set new low alert with 5 minutes period to see cryptos which move to new low in 5 minutes interval.
+</dd>
+</dl>
+<dd>
+مقدار لئو جدید </br>
+این هشدار  زمانی ظاهر می شود که اخرین تراکنش  با قیمت پایین تری   نسبت به بقیه تراکنش ها در بازه زمانی خاص پرمی شود:5دقیقه ای و15 دقیقه
+ای و60 دقیقه ای و یک روز .
+.هر بار که اخرین قیمت در مقایسه با اخرین سیگنال  بیشتر از 0.5 کاهش یافته است هشدار بعدی ظاهر خواهد شد
+برای مشاهده کریپتوهایی که در فاصله زمانی 5 دقیقه به پایین ترین حد جدید می رسند،
+هشدار پایین  جدید را با دوره 5 دقیقه تنظیم کنید
+</dd>
+<dl>
+<dt>
+44-
+<b>Crossed daily highs</b>
+</dt>
+<dd>
+This alert appear when price cross last day high for the first time.
+Set this alert to see cryptos which crossed last day high.
+</dd>
+</dl>
+
+<dd>
+از اوج روزانه عبور کرد</br>
+این هشدار زمانی ظاهر می شود که قیمت برای اولین بار از بالاترین روز گذشته عبور کند
+ .این هشدار را برای مشاهده کریپتوهایی که بالاترین سطح روز گذشته پشت سر گذاشته اند تنظیم کنید
+</dd>
+<dl>
+<dt>
+45-
+<b>Crossed daily lows</b>
+</dt>
+<dd>
+
+This alert appear when price cross last day low for the first time.
+Set this alert to see cryptos which crossed last day low.
+</dd>
+</dl>
+<dd>
+از پایین ترین سطح روزانه عبور کرد</br>
+این هشدار زمانی ظاهر می شود که قیمت برای اولین بار از پایین ترین سطح روز گذشته عبور کند
+ .این هشدار را برای مشاهده کریپتوهایی که پایین سطح روز گذشته پشت سر گذاشته اند تنظیم کنید
+</dd>
+<dl>
+<dt>
+46-
+<b>New high with minimum change</b>
+</dt>
+<dd>
+This alert appear when last transaction is filled on higher price than the rest of transactions in particular interval. When compare it to “new high” or “new low” alerts, there you can set the minimum % change in particular interval.
+You can set minimum to 1% on 5 min interval to see cryptos that move up at least 1 % change on 5 minutes interval (when compares to last alert).
+</dd>
+</dl>
+<dd>
+بالاترین سطح جدید با کمترین تغییر </br>
+این هشدار زمانی ظاهر می شود که اخرین تراکنش  با  قیمت بالاتری
+ نسبت به بقیه تراکنش ها در محدوده زمانی خاص پر می شود .زمانی که 
+ آن را با بالاترین سطح جدید یا پایین ترین سطح جدید هشدارها مقایسه کنید،
+درآنجا می توانید حداقل درصد تغییررا در فاصله 
+زمانی خاص تنظیم کنید.می توانید حداقل  1 درصد تغییررا در  فاصله زمانی 5 دقیقه تنظیم کنید 
+تا مشاهده کنید کریپتوهایی که  
+حداقل   1 درصد تغییر(افزایش) می کنند در فاصله زمانی 5 دقیقه (در مقایسه با اخرین هشدار).
+</dd>
+<dl>
+<dt>
+47-
+<b>New low with minimum change</b>
+</dt>
+<dd>
+This alert appear when last transaction is filled on lower price than the rest of transactions in particular interval. When compare it to “new high” or “new low” alerts, there you can set the minimum % change in particular interval.
+You can set minimum to 1% on 5 min interval to see cryptos that move down at least 1 % change on 5 minutes interval (when compares to last alert).
+</dd>
+</dl>
+<dd>
+پایین ترین سطح جدید با کمترین تغییر</br>
+این هشدار زمانی ظاهر می شود که اخرین تراکنش  با  قیمت پایین ترین
+ نسبت به بقیه تراکنش ها در محدوده زمانی خاص پر می شود .زمانی که 
+ آن را با بالاترین سطح جدید یا پایین ترین سطح جدید هشدارها مقایسه کنید،
+درآنجا می توانید حداقل درصد تغییررا در فاصله 
+زمانی خاص تنظیم کنید.می توانید حداقل  1 درصد تغییررا در  فاصله زمانی 5 دقیقه تنظیم کنید 
+تا مشاهده کنید کریپتوهایی که  
+حداقل   1 درصد تغییر (کاهش) می کنند در فاصله زمانی 5 دقیقه (در مقایسه با اخرین هشدار)
+
+
+</dd>
+<dl>
+<dt>
+48-
+<b>% up for the day</b>
+</dt>
+<dd>
+These alerts report when a stock moves up a certain percentage since the previous close. You will receive next alert when price move up at least 0.5% when compares to last signal.
+Set 5% to see cryptos that move at least 5% up from last day’s close.
+</dd>
+</dl>
+<dd>
+ درصد افزایش برای روز </br>
+این هشدارها  زمانی را گزارش می دهند  که یک سهم  نسبت به قیمت بستن شدن قبلی  درصد مشخصی افزایش می یابد.
+زمانی که قیمت در مقایسه با اخرین سیگنال حداقل 0.5 درصد افزایش یابد هشدار بعدی را دریافت خواهید کرد .
+  برای مشاهده  کریپتوهایی  که حداقل 5 درصد  نسبت به روز گذشته بسته شده انده (افزایش) ، 5 درصد را تنظیم کنید .
+ 
+</dd>
+<dl>
+<dt>
+49-
+<b>% down for the day</b>
+</dt>
+<dd>
+These alerts report when a stock moves down a certain percentage since the previous close. You will receive next alert when price move down at least 0.5% when compares to last signal.
+Set 5% to see cryptos that move at least 5% down from last day’s close.
+</dd>
+</dl>
+<dd>
+درصد کاهش برای روز </br>
+این هشدارها  زمانی را گزارش می دهند  که یک سهم  نسبت به قیمت بستن شدن قبلی  درصد مشخصی کاهش می یابد.
+زمانی که قیمت در مقایسه با اخرین سیگنال حداقل 0.5 درصد کاهش یابد هشدار بعدی را دریافت خواهید کرد .
+  برای مشاهده  کریپتوهایی  که حداقل 5 درصد  نسبت به روز گذشته بسته شده انده(کاهش) ، 5 درصد را تنظیم کنید .
+</dd>
+<dl>
+<dt>
+50-
+<b>Significant ask size</b>
+</dt>
+<dd>
+This alert refers to the cumulative size of order on best ask on Level 1 window. You will be notified again within 5 minutes or when amount change by more than 20% to last signal.
+When you set minimum 10 BTC and maximum 100 BTC, then you will be notified each time scanner will find an order of 10 to 100 BTC on ASK side. You can fill 1 field (min or max) or both.
+</dd>
+</dl>
+
+
+<dd>
+اندازه درخواست قابل توجه</br>
+این هشدار به اندازه انباشته سفارش در بهترین درخواست در سطح 1 ویندوز  اشاره دارد.
+ در عرض  5 دقیقه یا زمانی که مقدار  بیشتر از 20 درصد به اخرین سیگنال تغییر کند دوباره به شما اطلاع داده می شود.
+زمانی که حداقل 10 بیت کوین و ماکزیمم 100 بیت کوین  را  شما تنظیم می کنید، هر زمانی که اسکنر 
+ یک سفارشی بین  10 تا 100 بیت کوین روی سمت درخواست به شما اطلاع داده می شود .
+  می توانید 1 فیلد (بیشترین یا کمترین ) یا هر دو  پر کنید.
+</dd>
+
+<dl>
+<dt>
+51-
+<b>Significant bid size</b>
+</dt>
+<dd>
+This alert refers to the cumulative size of order on best bid on Level 1 window. You will be notified again within 5 minutes or when amount change by more than 20% to last signal.
+When you set minimum 10 BTC and maximum 100 BTC, then you will be notified each time scanner will find an order of 10 to 100 BTC on BID side. You can fill 1 field (min or max) or both.
+</dd>
+</dl>
+
+<dd>
+اندازه پیشنهاد قابل توجه</br>
+این هشدار به اندازه انباشته سفارش در بهترین پیشنهاد در سطح 1 ویندوز  اشاره دارد.
+ در عرض  5 دقیقه یا زمانی که مقدار  بیشتر از 20 درصد به اخرین سیگنال تغییر کند دوباره به شما اطلاع داده می شود.
+زمانی که حداقل 10 بیت کوین و ماکزیمم 100 بیت کوین  را  شما تنظیم می کنید، هر زمانی که اسکنر 
+ یک سفارشی بین  10 تا 100 بیت کوین روی سمت پیشنهاد به شما اطلاع داده می شود .
+  می توانید 1 فیلد (بیشترین یا کمترین ) یا هر دو  پر کنید.
+</dd>
+
+<dl>
+<dt>
+52-
+<b>Big size trade</b>
+</dt>
+<dd>
+This alert appears when last transaction value is higher than amount set be user.
+Set minimum to 10 ETH to see cryptos pair with /ETH that have last transaction value of minimum 10 ETH.
+</dd>
+</dl>
+
+<dl>
+<dt>
+53-
+<b>Consolidation range 60 minutes</b>
+</dt>
+<dd>
+This alert appear when average true range is narrowing in last five 60 minutes candles intervals.
+Set this alert to see cryptos that have been consolidating in last five 60 minutes candles.
+</dd>
+</dl>
+
+<dl>
+<dt>
+54-
+<b>Consolidation range 15 minutes</b>
+</dt>
+<dd>
+This alert appear when average true range is narrowing in last five 15 minutes candles intervals.
+Set this alert to see cryptos that have been consolidating in last five 15 minutes candles.
+</dd>
+</dl>
+
+<dl>
+<dt>
+55-
+<b>Consolidation range 5 minutes</b>
+</dt>
+<dd>
+This alert appear when average true range is narrowing in last five 5 minutes candles intervals.
+Set this alert to see cryptos that have been consolidating in last five 5 minutes candles.
+</dd>
+</dl>
+
+<dl>
+<dt>
+56-
+<b>Relative volume up</b>
+</dt>
+<dd>
+Relative volume compare today’s volume to the yesterday volume for this time of a day.
+Set minimum = 2 to see cryptos which volume at today’s session is twice time higher than yesterday’s volume for this time of a day.
+</dd>
+</dl>
+
+<dl>
+<dt>
+57-
+<b>Sudden volume spike ratio</b>
+</dt>
+<dd>
+This alert appear when volume in last 1 minute candle increase than average of five previous 1 minute candles.
+Set minimum ratio = 2 to see cryptos which volume in last 1 minute candle is 2 times higher that average of 5 previous 1 minute candles.
+</dd>
+</dl>
+
+<dl>
+<dt>
+58-
+<b>5 Minute Volume Spike ratio</b>
+</dt>
+<dd>
+This alert appear when volume in last 5 minutes candle increase than average of five previous 5 minutes candles.
+Set minimum ratio = 2 to see cryptos which volume in last 5 minutes candle is 2 times higher that average of 5 previous 5 minutes candles.
+</dd>
+</dl>
+
+<dl>
+<dt>
+59-
+<b>15 Minute Volume Spike ratio</b>
+</dt>
+<dd>
+This alert appear when volume in last 15 minutes candle increase than average of five previous 15 minutes candles.
+Set minimum ratio = 2 to see cryptos which volume in last 15 minutes candle is 2 times higher that average of 5 previous 15 minutes candles.
+</dd>
+</dl>
+
+<dl>
+<dt>
+60-
+<b>60 Minute Volume Spike ratio</b>
+</dt>
+<dd>
+This alert appear when volume in last 60 minutes candle increase than average of five previous 60 minutes candles.
+Set minimum ratio = 2 to see cryptos which volume in last 60 minutes candle is 2 times higher that average of 5 previous 60 minutes candles.
+</dd>
+</dl>
+
+<dl>
+<dt>
+61-
+<b>Unusual number of trades 1m</b>
+</dt>
+<dd>
+This alert appear when in last 1 minute candle there is significant higher number of trades when compare to average of number of trades in previous five 1 minute candles.
+Set minimum ratio = 5 to see cryptos which have 5 times higher number of trades in last 1 minute candle when compare to average of previous five 1 minutes candles.
+</dd>
+</dl>
+
+<dl>
+<dt>
+62-
+<b>Unusual number of trades 5m</b>
+</dt>
+<dd>
+This alert appear when in last 5 minute candle there is significant higher number of trades when compare to average of number of trades in previous five 5 minute candles.
+Set minimum ratio = 5 to see cryptos which have 5 times higher number of trades in last 5 minute candle when compare to average of previous five 5 minutes candles.
+</dd>
+</dl>
+
+<dl>
+<dt>
+63-
+<b>Unusual number of trades 15m</b>
+</dt>
+<dd>
+This alert appear when in last 15 minute candle there is significant higher number of trades when compare to average of number of trades in previous five 15 minute candles.
+Set minimum ratio = 5 to see cryptos which have 15 times higher number of trades in last 15 minute candle when compare to average of previous five 15 minutes candles.
+</dd>
+</dl>
+
+<dl>
+<dt>
+64-
+<b>Unusual number of trades 60m</b>
+</dt>
+<dd>
+This alert appear when in last 60 minute candle there is significant higher number of trades when compare to average of number of trades in previous five 60 minute candles.
+Set minimum ratio = 5 to see cryptos which have 60 times higher number of trades in last 60 minute candle when compare to average of previous five 60 minutes candles.
+</dd>
+</dl>
+
+<dl>
+<dt>
+65-
+<b>Spike up %</b>
+</dt>
+<dd>
+This alert appear when price is up at least 2% when compare to closing price of last 1 minute candle.
+Set minimum to 5% to see cryptos which move up at least 5% in last 1 minute candle. Important: minimum that you can set is 2%.
+</dd>
+</dl>
+
+<dl>
+<dt>
+66-
+<b>Spike down %</b>
+</dt>
+<dd>
+This alert appear when price is down at least 2% when compare to closing price of last 1 minute candle.
+Set minimum to 5% to see cryptos which move down at least 5% in last 1 minute candle. Important: minimum that you can set is 2%.
+</dd>
+</dl>
+
+	
+	
+</body>
+</html>
+{%endblock%}

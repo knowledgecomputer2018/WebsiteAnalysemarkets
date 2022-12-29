@@ -1,0 +1,83 @@
+
+{% extends "base.html" %}
+{% block page_content %}
+
+
+
+
+<html>
+<head>
+  
+    
+    
+	<title>analyse market website</title>
+</head>
+<body>
+
+<h1>Analyse Data Markets Cryptocurrency {{sym}}</h1>
+
+
+<div id="output">
+
+
+{% if token %}
+<h3>token:</h3>
+{{token}}
+{% endif %}
+
+
+{% if trades %}
+<h3>trades Nobitex::</h3>
+
+{% for trade in trades %}
+	{{trade}}
+{% endfor %}
+{% endif %}
+
+{% if markets %}
+<h3>markets Nobitex::</h3>
+
+{% for market in markets %}
+	{{market}}
+{% endfor %}
+{% endif %}
+
+{% if ohcl %}
+<h3>OHCL Nobitex:</h3>
+
+{{ohcl}}
+{% endif %}
+
+{% if ordersbook %}
+<h3>ordersbook Nobitex:</h3>
+
+{% for orderbook in ordersbook %}
+	{{orderbook}}
+{% endfor %}
+{% endif %}
+
+
+{% if depthorders %}
+<h3>depthorders Nobitex:</h3>
+
+{{depthorders}}
+
+{% endif %}
+
+
+
+
+
+{% if candles %}
+<h3>candles Binance:</h3>
+
+{% for trade in trades %}
+	{{trade}}
+{% endfor %}
+{% endif %}
+
+</div>
+</body>
+</html>
+
+{% endblock %}

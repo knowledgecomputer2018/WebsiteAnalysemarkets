@@ -1,0 +1,339 @@
+<html>
+<head>
+</head>
+<style>
+body{font-family:arial;margin:20px;text-align:center}
+</style>
+<body>
+	<h1>Candlestick	Screener </h1>
+	<h1>شناسایی الگوی کندل ها </h1>
+	
+	<form>
+		<select name='pattern'>
+	   
+		
+			<option value='CDL2CROWS'>Two Crows</option>
+		
+		
+		 
+		
+			<option value='CDL3BLACKCROWS'>Three Black Crows</option>
+		
+		
+		 
+		
+			<option value='CDL3INSIDE'>Three Inside Up/Down</option>
+		
+		
+		 
+		
+			<option value='CDL3LINESTRIKE'>Three-Line Strike</option>
+		
+		
+		 
+		
+			<option value='CDL3OUTSIDE'>Three Outside Up/Down</option>
+		
+		
+		 
+		
+			<option value='CDL3STARSINSOUTH'>Three Stars In The South</option>
+		
+		
+		 
+		
+			<option value='CDL3WHITESOLDIERS'>Three Advancing White Soldiers</option>
+		
+		
+		 
+		
+			<option value='CDLABANDONEDBABY'>Abandoned Baby</option>
+		
+		
+		 
+		
+			<option value='CDLADVANCEBLOCK'>Advance Block</option>
+		
+		
+		 
+		
+			<option value='CDLBELTHOLD'>Belt-hold</option>
+		
+		
+		 
+		
+			<option value='CDLBREAKAWAY'>Breakaway</option>
+		
+		
+		 
+		
+			<option value='CDLCLOSINGMARUBOZU'>Closing Marubozu</option>
+		
+		
+		 
+		
+			<option value='CDLCONCEALBABYSWALL'>Concealing Baby Swallow</option>
+		
+		
+		 
+		
+			<option value='CDLCOUNTERATTACK'>Counterattack</option>
+		
+		
+		 
+		
+			<option value='CDLDARKCLOUDCOVER'>Dark Cloud Cover</option>
+		
+		
+		 
+		
+			<option value='CDLDOJI'>Doji</option>
+		
+		
+		 
+		
+			<option value='CDLDOJISTAR'>Doji Star</option>
+		
+		
+		 
+		
+			<option value='CDLDRAGONFLYDOJI'>Dragonfly Doji</option>
+		
+		
+		 
+		
+			<option value='CDLENGULFING'>Engulfing Pattern</option>
+		
+		
+		 
+		
+			<option value='CDLEVENINGDOJISTAR'>Evening Doji Star</option>
+		
+		
+		 
+		
+			<option value='CDLEVENINGSTAR'>Evening Star</option>
+		
+		
+		 
+		
+			<option value='CDLGAPSIDESIDEWHITE'>Up/Down-gap side-by-side white lines</option>
+		
+		
+		 
+		
+			<option value='CDLGRAVESTONEDOJI'>Gravestone Doji</option>
+		
+		
+		 
+		
+			<option value='CDLHAMMER'>Hammer</option>
+		
+		
+		 
+		
+			<option value='CDLHANGINGMAN'>Hanging Man</option>
+		
+		
+		 
+		
+			<option value='CDLHARAMI'>Harami Pattern</option>
+		
+		
+		 
+		
+			<option value='CDLHARAMICROSS'>Harami Cross Pattern</option>
+		
+		
+		 
+		
+			<option value='CDLHIGHWAVE'>High-Wave Candle</option>
+		
+		
+		 
+		
+			<option value='CDLHIKKAKE'>Hikkake Pattern</option>
+		
+		
+		 
+		
+			<option value='CDLHIKKAKEMOD'>Modified Hikkake Pattern</option>
+		
+		
+		 
+		
+			<option value='CDLHOMINGPIGEON'>Homing Pigeon</option>
+		
+		
+		 
+		
+			<option value='CDLIDENTICAL3CROWS'>Identical Three Crows</option>
+		
+		
+		 
+		
+			<option value='CDLINNECK'>In-Neck Pattern</option>
+		
+		
+		 
+		
+			<option value='CDLINVERTEDHAMMER'>Inverted Hammer</option>
+		
+		
+		 
+		
+			<option value='CDLKICKING'>Kicking</option>
+		
+		
+		 
+		
+			<option value='CDLKICKINGBYLENGTH'>Kicking - bull/bear determined by the longer marubozu</option>
+		
+		
+		 
+		
+			<option value='CDLLADDERBOTTOM'>Ladder Bottom</option>
+		
+		
+		 
+		
+			<option value='CDLLONGLEGGEDDOJI'>Long Legged Doji</option>
+		
+		
+		 
+		
+			<option value='CDLLONGLINE'>Long Line Candle</option>
+		
+		
+		 
+		
+			<option value='CDLMARUBOZU'>Marubozu</option>
+		
+		
+		 
+		
+			<option value='CDLMATCHINGLOW'>Matching Low</option>
+		
+		
+		 
+		
+			<option value='CDLMATHOLD'>Mat Hold</option>
+		
+		
+		 
+		
+			<option value='CDLMORNINGDOJISTAR'>Morning Doji Star</option>
+		
+		
+		 
+		
+			<option value='CDLMORNINGSTAR'>Morning Star</option>
+		
+		
+		 
+		
+			<option value='CDLONNECK'>On-Neck Pattern</option>
+		
+		
+		 
+		
+			<option value='CDLPIERCING'>Piercing Pattern</option>
+		
+		
+		 
+		
+			<option value='CDLRICKSHAWMAN'>Rickshaw Man</option>
+		
+		
+		 
+		
+			<option value='CDLRISEFALL3METHODS'>Rising/Falling Three Methods</option>
+		
+		
+		 
+		
+			<option value='CDLSEPARATINGLINES'>Separating Lines</option>
+		
+		
+		 
+		
+			<option value='CDLSHOOTINGSTAR'>Shooting Star</option>
+		
+		
+		 
+		
+			<option value='CDLSHORTLINE'>Short Line Candle</option>
+		
+		
+		 
+		
+			<option value='CDLSPINNINGTOP'>Spinning Top</option>
+		
+		
+		 
+		
+			<option value='CDLSTALLEDPATTERN'>Stalled Pattern</option>
+		
+		
+		 
+		
+			<option value='CDLSTICKSANDWICH'>Stick Sandwich</option>
+		
+		
+		 
+		
+			<option value='CDLTAKURI'>Takuri (Dragonfly Doji with very long lower shadow)</option>
+		
+		
+		 
+		
+			<option value='CDLTASUKIGAP'>Tasuki Gap</option>
+		
+		
+		 
+		
+			<option value='CDLTHRUSTING'>Thrusting Pattern</option>
+		
+		
+		 
+		
+			<option value='CDLTRISTAR'>Tristar Pattern</option>
+		
+		
+		 
+		
+			<option value='CDLUNIQUE3RIVER'>Unique 3 River</option>
+		
+		
+		 
+		
+			<option value='CDLUPSIDEGAP2CROWS'>Upside Gap Two Crows</option>
+		
+		
+		 
+		
+			<option value='CDLXSIDEGAP3METHODS'>Upside/Downside Gap Three Methods</option>
+		
+		
+		 
+		</select>
+		<input type="submit" value="scan"/>
+	</form>
+	   
+			<!--&#39;MMM&#39;: {&#39;company&#39;: &#39;3M Company&#39;}, &#39;ABT&#39;: {&#39;company&#39;: &#39;Abbott Laboratories&#39;}, &#39;ABBV&#39;: {&#39;company&#39;: &#39;AbbVie Inc.&#39;}, &#39;ABMD&#39;: {&#39;company&#39;: &#39;ABIOMED Inc&#39;}, &#39;ACN&#39;: {&#39;company&#39;: &#39;Accenture plc&#39;}, &#39;ATVI&#39;: {&#39;company&#39;: &#39;Activision Blizzard&#39;}, &#39;ADBE&#39;: {&#39;company&#39;: &#39;Adobe Systems Inc&#39;}, &#39;AMD&#39;: {&#39;company&#39;: &#39;Advanced Micro Devices Inc&#39;}, &#39;AAP&#39;: {&#39;company&#39;: &#39;Advance Auto Parts&#39;}, &#39;AES&#39;: {&#39;company&#39;: &#39;AES Corp&#39;}, &#39;AFL&#39;: {&#39;company&#39;: &#39;AFLAC Inc&#39;}, &#39;A&#39;: {&#39;company&#39;: &#39;Agilent Technologies Inc&#39;}, &#39;APD&#39;: {&#39;company&#39;: &#39;Air Products &amp; Chemicals Inc&#39;}, &#39;AKAM&#39;: {&#39;company&#39;: &#39;Akamai Technologies Inc&#39;}, &#39;ALK&#39;: {&#39;company&#39;: &#39;Alaska Air Group Inc&#39;}, &#39;ALB&#39;: {&#39;company&#39;: &#39;Albemarle Corp&#39;}, &#39;ARE&#39;: {&#39;company&#39;: &#39;Alexandria Real Estate Equities&#39;}, &#39;ALXN&#39;: {&#39;company&#39;: &#39;Alexion Pharmaceuticals&#39;}, &#39;ALGN&#39;: {&#39;company&#39;: &#39;Align Technology&#39;}, &#39;ALLE&#39;: {&#39;company&#39;: &#39;Allegion&#39;}, &#39;AGN&#39;: {&#39;company&#39;: &#39;Allergan, plc&#39;}, &#39;ADS&#39;: {&#39;company&#39;: &#39;Alliance Data Systems&#39;}, &#39;LNT&#39;: {&#39;company&#39;: &#39;Alliant Energy Corp&#39;}, &#39;ALL&#39;: {&#39;company&#39;: &#39;Allstate Corp&#39;}, &#39;GOOGL&#39;: {&#39;company&#39;: &#39;Alphabet Inc Class A&#39;}, &#39;GOOG&#39;: {&#39;company&#39;: &#39;Alphabet Inc Class C&#39;}, &#39;MO&#39;: {&#39;company&#39;: &#39;Altria Group Inc&#39;}, &#39;AMZN&#39;: {&#39;company&#39;: &#39;Amazon.com Inc.&#39;}, &#39;AMCR&#39;: {&#39;company&#39;: &#39;Amcor plc&#39;}, &#39;AEE&#39;: {&#39;company&#39;: &#39;Ameren Corp&#39;}, &#39;AAL&#39;: {&#39;company&#39;: &#39;American Airlines Group&#39;}, &#39;AEP&#39;: {&#39;company&#39;: &#39;American Electric Power&#39;}, &#39;AXP&#39;: {&#39;company&#39;: &#39;American Express Co&#39;}, &#39;AIG&#39;: {&#39;company&#39;: &#39;American International Group&#39;}, &#39;AMT&#39;: {&#39;company&#39;: &#39;American Tower Corp.&#39;}, &#39;AWK&#39;: {&#39;company&#39;: &#39;American Water Works Company Inc&#39;}, &#39;AMP&#39;: {&#39;company&#39;: &#39;Ameriprise Financial&#39;}, &#39;ABC&#39;: {&#39;company&#39;: &#39;AmerisourceBergen Corp&#39;}, &#39;AME&#39;: {&#39;company&#39;: &#39;AMETEK Inc.&#39;}, &#39;AMGN&#39;: {&#39;company&#39;: &#39;Amgen Inc.&#39;}, &#39;APH&#39;: {&#39;company&#39;: &#39;Amphenol Corp&#39;}, &#39;ADI&#39;: {&#39;company&#39;: &#39;Analog Devices, Inc.&#39;}, &#39;ANSS&#39;: {&#39;company&#39;: &#39;ANSYS&#39;}, &#39;ANTM&#39;: {&#39;company&#39;: &#39;Anthem&#39;}, &#39;AON&#39;: {&#39;company&#39;: &#39;Aon plc&#39;}, &#39;AOS&#39;: {&#39;company&#39;: &#39;A.O. Smith Corp&#39;}, &#39;APA&#39;: {&#39;company&#39;: &#39;Apache Corporation&#39;}, &#39;AIV&#39;: {&#39;company&#39;: &#39;Apartment Investment &amp; Management&#39;}, &#39;AAPL&#39;: {&#39;company&#39;: &#39;Apple Inc.&#39;}, &#39;AMAT&#39;: {&#39;company&#39;: &#39;Applied Materials Inc.&#39;}, &#39;APTV&#39;: {&#39;company&#39;: &#39;Aptiv PLC&#39;}, &#39;ADM&#39;: {&#39;company&#39;: &#39;Archer-Daniels-Midland Co&#39;}, &#39;ARNC&#39;: {&#39;company&#39;: &#39;Arconic Inc.&#39;}, &#39;ANET&#39;: {&#39;company&#39;: &#39;Arista Networks&#39;}, &#39;AJG&#39;: {&#39;company&#39;: &#39;Arthur J. Gallagher &amp; Co.&#39;}, &#39;AIZ&#39;: {&#39;company&#39;: &#39;Assurant&#39;}, &#39;ATO&#39;: {&#39;company&#39;: &#39;Atmos Energy Corp&#39;}, &#39;T&#39;: {&#39;company&#39;: &#39;AT&amp;T Inc.&#39;}, &#39;ADSK&#39;: {&#39;company&#39;: &#39;Autodesk Inc.&#39;}, &#39;ADP&#39;: {&#39;company&#39;: &#39;Automatic Data Processing&#39;}, &#39;AZO&#39;: {&#39;company&#39;: &#39;AutoZone Inc&#39;}, &#39;AVB&#39;: {&#39;company&#39;: &#39;AvalonBay Communities, Inc.&#39;}, &#39;AVY&#39;: {&#39;company&#39;: &#39;Avery Dennison Corp&#39;}, &#39;BKR&#39;: {&#39;company&#39;: &#39;Baker Hughes Co&#39;}, &#39;BLL&#39;: {&#39;company&#39;: &#39;Ball Corp&#39;}, &#39;BAC&#39;: {&#39;company&#39;: &#39;Bank of America Corp&#39;}, &#39;BK&#39;: {&#39;company&#39;: &#39;The Bank of New York Mellon Corp.&#39;}, &#39;BAX&#39;: {&#39;company&#39;: &#39;Baxter International Inc.&#39;}, &#39;BDX&#39;: {&#39;company&#39;: &#39;Becton Dickinson&#39;}, &#39;BRK.B&#39;: {&#39;company&#39;: &#39;Berkshire Hathaway&#39;}, &#39;BBY&#39;: {&#39;company&#39;: &#39;Best Buy Co. Inc.&#39;}, &#39;BIIB&#39;: {&#39;company&#39;: &#39;Biogen Inc.&#39;}, &#39;BLK&#39;: {&#39;company&#39;: &#39;BlackRock&#39;}, &#39;BA&#39;: {&#39;company&#39;: &#39;Boeing Company&#39;}, &#39;BKNG&#39;: {&#39;company&#39;: &#39;Booking Holdings Inc&#39;}, &#39;BWA&#39;: {&#39;company&#39;: &#39;BorgWarner&#39;}, &#39;BXP&#39;: {&#39;company&#39;: &#39;Boston Properties&#39;}, &#39;BSX&#39;: {&#39;company&#39;: &#39;Boston Scientific&#39;}, &#39;BMY&#39;: {&#39;company&#39;: &#39;Bristol-Myers Squibb&#39;}, &#39;AVGO&#39;: {&#39;company&#39;: &#39;Broadcom Inc.&#39;}, &#39;BR&#39;: {&#39;company&#39;: &#39;Broadridge Financial Solutions&#39;}, &#39;BF.B&#39;: {&#39;company&#39;: &#39;Brown-Forman Corp.&#39;}, &#39;CHRW&#39;: {&#39;company&#39;: &#39;C. H. Robinson Worldwide&#39;}, &#39;COG&#39;: {&#39;company&#39;: &#39;Cabot Oil &amp; Gas&#39;}, &#39;CDNS&#39;: {&#39;company&#39;: &#39;Cadence Design Systems&#39;}, &#39;CPB&#39;: {&#39;company&#39;: &#39;Campbell Soup&#39;}, &#39;COF&#39;: {&#39;company&#39;: &#39;Capital One Financial&#39;}, &#39;CPRI&#39;: {&#39;company&#39;: &#39;Capri Holdings&#39;}, &#39;CAH&#39;: {&#39;company&#39;: &#39;Cardinal Health Inc.&#39;}, &#39;KMX&#39;: {&#39;company&#39;: &#39;Carmax Inc&#39;}, &#39;CCL&#39;: {&#39;company&#39;: &#39;Carnival Corp.&#39;}, &#39;CAT&#39;: {&#39;company&#39;: &#39;Caterpillar Inc.&#39;}, &#39;CBOE&#39;: {&#39;company&#39;: &#39;Cboe Global Markets&#39;}, &#39;CBRE&#39;: {&#39;company&#39;: &#39;CBRE Group&#39;}, &#39;CDW&#39;: {&#39;company&#39;: &#39;CDW&#39;}, &#39;CE&#39;: {&#39;company&#39;: &#39;Celanese&#39;}, &#39;CNC&#39;: {&#39;company&#39;: &#39;Centene Corporation&#39;}, &#39;CNP&#39;: {&#39;company&#39;: &#39;CenterPoint Energy&#39;}, &#39;CTL&#39;: {&#39;company&#39;: &#39;CenturyLink Inc&#39;}, &#39;CERN&#39;: {&#39;company&#39;: &#39;Cerner&#39;}, &#39;CF&#39;: {&#39;company&#39;: &#39;CF Industries Holdings Inc&#39;}, &#39;SCHW&#39;: {&#39;company&#39;: &#39;Charles Schwab Corporation&#39;}, &#39;CHTR&#39;: {&#39;company&#39;: &#39;Charter Communications&#39;}, &#39;CVX&#39;: {&#39;company&#39;: &#39;Chevron Corp.&#39;}, &#39;CMG&#39;: {&#39;company&#39;: &#39;Chipotle Mexican Grill&#39;}, &#39;CB&#39;: {&#39;company&#39;: &#39;Chubb Limited&#39;}, &#39;CHD&#39;: {&#39;company&#39;: &#39;Church &amp; Dwight&#39;}, &#39;CI&#39;: {&#39;company&#39;: &#39;CIGNA Corp.&#39;}, &#39;XEC&#39;: {&#39;company&#39;: &#39;Cimarex Energy&#39;}, &#39;CINF&#39;: {&#39;company&#39;: &#39;Cincinnati Financial&#39;}, &#39;CTAS&#39;: {&#39;company&#39;: &#39;Cintas Corporation&#39;}, &#39;CSCO&#39;: {&#39;company&#39;: &#39;Cisco Systems&#39;}, &#39;C&#39;: {&#39;company&#39;: &#39;Citigroup Inc.&#39;}, &#39;CFG&#39;: {&#39;company&#39;: &#39;Citizens Financial Group&#39;}, &#39;CTXS&#39;: {&#39;company&#39;: &#39;Citrix Systems&#39;}, &#39;CLX&#39;: {&#39;company&#39;: &#39;The Clorox Company&#39;}, &#39;CME&#39;: {&#39;company&#39;: &#39;CME Group Inc.&#39;}, &#39;CMS&#39;: {&#39;company&#39;: &#39;CMS Energy&#39;}, &#39;KO&#39;: {&#39;company&#39;: &#39;Coca-Cola Company&#39;}, &#39;CTSH&#39;: {&#39;company&#39;: &#39;Cognizant Technology Solutions&#39;}, &#39;CL&#39;: {&#39;company&#39;: &#39;Colgate-Palmolive&#39;}, &#39;CMCSA&#39;: {&#39;company&#39;: &#39;Comcast Corp.&#39;}, &#39;CMA&#39;: {&#39;company&#39;: &#39;Comerica Inc.&#39;}, &#39;CAG&#39;: {&#39;company&#39;: &#39;Conagra Brands&#39;}, &#39;CXO&#39;: {&#39;company&#39;: &#39;Concho Resources&#39;}, &#39;COP&#39;: {&#39;company&#39;: &#39;ConocoPhillips&#39;}, &#39;ED&#39;: {&#39;company&#39;: &#39;Consolidated Edison&#39;}, &#39;STZ&#39;: {&#39;company&#39;: &#39;Constellation Brands&#39;}, &#39;COO&#39;: {&#39;company&#39;: &#39;The Cooper Companies&#39;}, &#39;CPRT&#39;: {&#39;company&#39;: &#39;Copart Inc&#39;}, &#39;GLW&#39;: {&#39;company&#39;: &#39;Corning Inc.&#39;}, &#39;CTVA&#39;: {&#39;company&#39;: &#39;Corteva&#39;}, &#39;COST&#39;: {&#39;company&#39;: &#39;Costco Wholesale Corp.&#39;}, &#39;COTY&#39;: {&#39;company&#39;: &#39;Coty, Inc&#39;}, &#39;CCI&#39;: {&#39;company&#39;: &#39;Crown Castle International Corp.&#39;}, &#39;CSX&#39;: {&#39;company&#39;: &#39;CSX Corp.&#39;}, &#39;CMI&#39;: {&#39;company&#39;: &#39;Cummins Inc.&#39;}, &#39;CVS&#39;: {&#39;company&#39;: &#39;CVS Health&#39;}, &#39;DHI&#39;: {&#39;company&#39;: &#39;D. R. Horton&#39;}, &#39;DHR&#39;: {&#39;company&#39;: &#39;Danaher Corp.&#39;}, &#39;DRI&#39;: {&#39;company&#39;: &#39;Darden Restaurants&#39;}, &#39;DVA&#39;: {&#39;company&#39;: &#39;DaVita Inc.&#39;}, &#39;DE&#39;: {&#39;company&#39;: &#39;Deere &amp; Co.&#39;}, &#39;DAL&#39;: {&#39;company&#39;: &#39;Delta Air Lines Inc.&#39;}, &#39;XRAY&#39;: {&#39;company&#39;: &#39;Dentsply Sirona&#39;}, &#39;DVN&#39;: {&#39;company&#39;: &#39;Devon Energy&#39;}, &#39;FANG&#39;: {&#39;company&#39;: &#39;Diamondback Energy&#39;}, &#39;DLR&#39;: {&#39;company&#39;: &#39;Digital Realty Trust Inc&#39;}, &#39;DFS&#39;: {&#39;company&#39;: &#39;Discover Financial Services&#39;}, &#39;DISCA&#39;: {&#39;company&#39;: &#39;Discovery Inc. Class A&#39;}, &#39;DISCK&#39;: {&#39;company&#39;: &#39;Discovery Inc. Class C&#39;}, &#39;DISH&#39;: {&#39;company&#39;: &#39;Dish Network&#39;}, &#39;DG&#39;: {&#39;company&#39;: &#39;Dollar General&#39;}, &#39;DLTR&#39;: {&#39;company&#39;: &#39;Dollar Tree&#39;}, &#39;D&#39;: {&#39;company&#39;: &#39;Dominion Energy&#39;}, &#39;DOV&#39;: {&#39;company&#39;: &#39;Dover Corp.&#39;}, &#39;DOW&#39;: {&#39;company&#39;: &#39;Dow Inc.&#39;}, &#39;DTE&#39;: {&#39;company&#39;: &#39;DTE Energy Co.&#39;}, &#39;DUK&#39;: {&#39;company&#39;: &#39;Duke Energy&#39;}, &#39;DRE&#39;: {&#39;company&#39;: &#39;Duke Realty Corp&#39;}, &#39;DD&#39;: {&#39;company&#39;: &#39;DuPont de Nemours Inc&#39;}, &#39;DXC&#39;: {&#39;company&#39;: &#39;DXC Technology&#39;}, &#39;ETFC&#39;: {&#39;company&#39;: &#39;E*Trade&#39;}, &#39;EMN&#39;: {&#39;company&#39;: &#39;Eastman Chemical&#39;}, &#39;ETN&#39;: {&#39;company&#39;: &#39;Eaton Corporation&#39;}, &#39;EBAY&#39;: {&#39;company&#39;: &#39;eBay Inc.&#39;}, &#39;ECL&#39;: {&#39;company&#39;: &#39;Ecolab Inc.&#39;}, &#39;EIX&#39;: {&#39;company&#39;: &#34;Edison Int&#39;l&#34;}, &#39;EW&#39;: {&#39;company&#39;: &#39;Edwards Lifesciences&#39;}, &#39;EA&#39;: {&#39;company&#39;: &#39;Electronic Arts&#39;}, &#39;EMR&#39;: {&#39;company&#39;: &#39;Emerson Electric Company&#39;}, &#39;ETR&#39;: {&#39;company&#39;: &#39;Entergy Corp.&#39;}, &#39;EOG&#39;: {&#39;company&#39;: &#39;EOG Resources&#39;}, &#39;EFX&#39;: {&#39;company&#39;: &#39;Equifax Inc.&#39;}, &#39;EQIX&#39;: {&#39;company&#39;: &#39;Equinix&#39;}, &#39;EQR&#39;: {&#39;company&#39;: &#39;Equity Residential&#39;}, &#39;ESS&#39;: {&#39;company&#39;: &#39;Essex Property Trust, Inc.&#39;}, &#39;EL&#39;: {&#39;company&#39;: &#39;Estee Lauder Cos.&#39;}, &#39;EVRG&#39;: {&#39;company&#39;: &#39;Evergy&#39;}, &#39;ES&#39;: {&#39;company&#39;: &#39;Eversource Energy&#39;}, &#39;RE&#39;: {&#39;company&#39;: &#39;Everest Re Group Ltd.&#39;}, &#39;EXC&#39;: {&#39;company&#39;: &#39;Exelon Corp.&#39;}, &#39;EXPE&#39;: {&#39;company&#39;: &#39;Expedia Group&#39;}, &#39;EXPD&#39;: {&#39;company&#39;: &#39;Expeditors&#39;}, &#39;EXR&#39;: {&#39;company&#39;: &#39;Extra Space Storage&#39;}, &#39;XOM&#39;: {&#39;company&#39;: &#39;Exxon Mobil Corp.&#39;}, &#39;FFIV&#39;: {&#39;company&#39;: &#39;F5 Networks&#39;}, &#39;FB&#39;: {&#39;company&#39;: &#39;Facebook, Inc.&#39;}, &#39;FAST&#39;: {&#39;company&#39;: &#39;Fastenal Co&#39;}, &#39;FRT&#39;: {&#39;company&#39;: &#39;Federal Realty Investment Trust&#39;}, &#39;FDX&#39;: {&#39;company&#39;: &#39;FedEx Corporation&#39;}, &#39;FIS&#39;: {&#39;company&#39;: &#39;Fidelity National Information Services&#39;}, &#39;FITB&#39;: {&#39;company&#39;: &#39;Fifth Third Bancorp&#39;}, &#39;FE&#39;: {&#39;company&#39;: &#39;FirstEnergy Corp&#39;}, &#39;FRC&#39;: {&#39;company&#39;: &#39;First Republic Bank&#39;}, &#39;FISV&#39;: {&#39;company&#39;: &#39;Fiserv Inc&#39;}, &#39;FLT&#39;: {&#39;company&#39;: &#39;FleetCor Technologies Inc&#39;}, &#39;FLIR&#39;: {&#39;company&#39;: &#39;FLIR Systems&#39;}, &#39;FLS&#39;: {&#39;company&#39;: &#39;Flowserve Corporation&#39;}, &#39;FMC&#39;: {&#39;company&#39;: &#39;FMC Corporation&#39;}, &#39;F&#39;: {&#39;company&#39;: &#39;Ford Motor&#39;}, &#39;FTNT&#39;: {&#39;company&#39;: &#39;Fortinet&#39;}, &#39;FTV&#39;: {&#39;company&#39;: &#39;Fortive Corp&#39;}, &#39;FBHS&#39;: {&#39;company&#39;: &#39;Fortune Brands Home &amp; Security&#39;}, &#39;FOXA&#39;: {&#39;company&#39;: &#39;Fox Corporation Class A&#39;}, &#39;FOX&#39;: {&#39;company&#39;: &#39;Fox Corporation Class B&#39;}, &#39;BEN&#39;: {&#39;company&#39;: &#39;Franklin Resources&#39;}, &#39;FCX&#39;: {&#39;company&#39;: &#39;Freeport-McMoRan Inc.&#39;}, &#39;GPS&#39;: {&#39;company&#39;: &#39;Gap Inc.&#39;}, &#39;GRMN&#39;: {&#39;company&#39;: &#39;Garmin Ltd.&#39;}, &#39;IT&#39;: {&#39;company&#39;: &#39;Gartner Inc&#39;}, &#39;GD&#39;: {&#39;company&#39;: &#39;General Dynamics&#39;}, &#39;GE&#39;: {&#39;company&#39;: &#39;General Electric&#39;}, &#39;GIS&#39;: {&#39;company&#39;: &#39;General Mills&#39;}, &#39;GM&#39;: {&#39;company&#39;: &#39;General Motors&#39;}, &#39;GPC&#39;: {&#39;company&#39;: &#39;Genuine Parts&#39;}, &#39;GILD&#39;: {&#39;company&#39;: &#39;Gilead Sciences&#39;}, &#39;GL&#39;: {&#39;company&#39;: &#39;Globe Life Inc.&#39;}, &#39;GPN&#39;: {&#39;company&#39;: &#39;Global Payments Inc.&#39;}, &#39;GS&#39;: {&#39;company&#39;: &#39;Goldman Sachs Group&#39;}, &#39;GWW&#39;: {&#39;company&#39;: &#39;Grainger (W.W.) Inc.&#39;}, &#39;HRB&#39;: {&#39;company&#39;: &#39;H&amp;R Block&#39;}, &#39;HAL&#39;: {&#39;company&#39;: &#39;Halliburton Co.&#39;}, &#39;HBI&#39;: {&#39;company&#39;: &#39;Hanesbrands Inc&#39;}, &#39;HOG&#39;: {&#39;company&#39;: &#39;Harley-Davidson&#39;}, &#39;HIG&#39;: {&#39;company&#39;: &#39;Hartford Financial Svc.Gp.&#39;}, &#39;HAS&#39;: {&#39;company&#39;: &#39;Hasbro Inc.&#39;}, &#39;HCA&#39;: {&#39;company&#39;: &#39;HCA Healthcare&#39;}, &#39;PEAK&#39;: {&#39;company&#39;: &#39;Healthpeak Properties&#39;}, &#39;HP&#39;: {&#39;company&#39;: &#39;Helmerich &amp; Payne&#39;}, &#39;HSIC&#39;: {&#39;company&#39;: &#39;Henry Schein&#39;}, &#39;HSY&#39;: {&#39;company&#39;: &#39;The Hershey Company&#39;}, &#39;HES&#39;: {&#39;company&#39;: &#39;Hess Corporation&#39;}, &#39;HPE&#39;: {&#39;company&#39;: &#39;Hewlett Packard Enterprise&#39;}, &#39;HLT&#39;: {&#39;company&#39;: &#39;Hilton Worldwide Holdings Inc&#39;}, &#39;HFC&#39;: {&#39;company&#39;: &#39;HollyFrontier Corp&#39;}, &#39;HOLX&#39;: {&#39;company&#39;: &#39;Hologic&#39;}, &#39;HD&#39;: {&#39;company&#39;: &#39;Home Depot&#39;}, &#39;HON&#39;: {&#39;company&#39;: &#34;Honeywell Int&#39;l Inc.&#34;}, &#39;HRL&#39;: {&#39;company&#39;: &#39;Hormel Foods Corp.&#39;}, &#39;HST&#39;: {&#39;company&#39;: &#39;Host Hotels &amp; Resorts&#39;}, &#39;HPQ&#39;: {&#39;company&#39;: &#39;HP Inc.&#39;}, &#39;HUM&#39;: {&#39;company&#39;: &#39;Humana Inc.&#39;}, &#39;HBAN&#39;: {&#39;company&#39;: &#39;Huntington Bancshares&#39;}, &#39;HII&#39;: {&#39;company&#39;: &#39;Huntington Ingalls Industries&#39;}, &#39;IEX&#39;: {&#39;company&#39;: &#39;IDEX Corporation&#39;}, &#39;IDXX&#39;: {&#39;company&#39;: &#39;IDEXX Laboratories&#39;}, &#39;INFO&#39;: {&#39;company&#39;: &#39;IHS Markit Ltd.&#39;}, &#39;ITW&#39;: {&#39;company&#39;: &#39;Illinois Tool Works&#39;}, &#39;ILMN&#39;: {&#39;company&#39;: &#39;Illumina Inc&#39;}, &#39;IR&#39;: {&#39;company&#39;: &#39;Ingersoll-Rand PLC&#39;}, &#39;INTC&#39;: {&#39;company&#39;: &#39;Intel Corp.&#39;}, &#39;ICE&#39;: {&#39;company&#39;: &#39;Intercontinental Exchange&#39;}, &#39;IBM&#39;: {&#39;company&#39;: &#39;International Business Machines&#39;}, &#39;INCY&#39;: {&#39;company&#39;: &#39;Incyte&#39;}, &#39;IP&#39;: {&#39;company&#39;: &#39;International Paper&#39;}, &#39;IPG&#39;: {&#39;company&#39;: &#39;Interpublic Group&#39;}, &#39;IFF&#39;: {&#39;company&#39;: &#39;Intl Flavors &amp; Fragrances&#39;}, &#39;INTU&#39;: {&#39;company&#39;: &#39;Intuit Inc.&#39;}, &#39;ISRG&#39;: {&#39;company&#39;: &#39;Intuitive Surgical Inc.&#39;}, &#39;IVZ&#39;: {&#39;company&#39;: &#39;Invesco Ltd.&#39;}, &#39;IPGP&#39;: {&#39;company&#39;: &#39;IPG Photonics Corp.&#39;}, &#39;IQV&#39;: {&#39;company&#39;: &#39;IQVIA Holdings Inc.&#39;}, &#39;IRM&#39;: {&#39;company&#39;: &#39;Iron Mountain Incorporated&#39;}, &#39;JKHY&#39;: {&#39;company&#39;: &#39;Jack Henry &amp; Associates&#39;}, &#39;J&#39;: {&#39;company&#39;: &#39;Jacobs Engineering Group&#39;}, &#39;JBHT&#39;: {&#39;company&#39;: &#39;J. B. Hunt Transport Services&#39;}, &#39;SJM&#39;: {&#39;company&#39;: &#39;JM Smucker&#39;}, &#39;JNJ&#39;: {&#39;company&#39;: &#39;Johnson &amp; Johnson&#39;}, &#39;JCI&#39;: {&#39;company&#39;: &#39;Johnson Controls International&#39;}, &#39;JPM&#39;: {&#39;company&#39;: &#39;JPMorgan Chase &amp; Co.&#39;}, &#39;JNPR&#39;: {&#39;company&#39;: &#39;Juniper Networks&#39;}, &#39;KSU&#39;: {&#39;company&#39;: &#39;Kansas City Southern&#39;}, &#39;K&#39;: {&#39;company&#39;: &#39;Kellogg Co.&#39;}, &#39;KEY&#39;: {&#39;company&#39;: &#39;KeyCorp&#39;}, &#39;KEYS&#39;: {&#39;company&#39;: &#39;Keysight Technologies&#39;}, &#39;KMB&#39;: {&#39;company&#39;: &#39;Kimberly-Clark&#39;}, &#39;KIM&#39;: {&#39;company&#39;: &#39;Kimco Realty&#39;}, &#39;KMI&#39;: {&#39;company&#39;: &#39;Kinder Morgan&#39;}, &#39;KLAC&#39;: {&#39;company&#39;: &#39;KLA Corporation&#39;}, &#39;KSS&#39;: {&#39;company&#39;: &#34;Kohl&#39;s Corp.&#34;}, &#39;KHC&#39;: {&#39;company&#39;: &#39;Kraft Heinz Co&#39;}, &#39;KR&#39;: {&#39;company&#39;: &#39;Kroger Co.&#39;}, &#39;LB&#39;: {&#39;company&#39;: &#39;L Brands Inc.&#39;}, &#39;LHX&#39;: {&#39;company&#39;: &#39;L3Harris Technologies&#39;}, &#39;LH&#39;: {&#39;company&#39;: &#39;Laboratory Corp. of America Holding&#39;}, &#39;LRCX&#39;: {&#39;company&#39;: &#39;Lam Research&#39;}, &#39;LW&#39;: {&#39;company&#39;: &#39;Lamb Weston Holdings Inc&#39;}, &#39;LVS&#39;: {&#39;company&#39;: &#39;Las Vegas Sands&#39;}, &#39;LEG&#39;: {&#39;company&#39;: &#39;Leggett &amp; Platt&#39;}, &#39;LDOS&#39;: {&#39;company&#39;: &#39;Leidos Holdings&#39;}, &#39;LEN&#39;: {&#39;company&#39;: &#39;Lennar Corp.&#39;}, &#39;LLY&#39;: {&#39;company&#39;: &#39;Lilly (Eli) &amp; Co.&#39;}, &#39;LNC&#39;: {&#39;company&#39;: &#39;Lincoln National&#39;}, &#39;LIN&#39;: {&#39;company&#39;: &#39;Linde plc&#39;}, &#39;LYV&#39;: {&#39;company&#39;: &#39;Live Nation Entertainment&#39;}, &#39;LKQ&#39;: {&#39;company&#39;: &#39;LKQ Corporation&#39;}, &#39;LMT&#39;: {&#39;company&#39;: &#39;Lockheed Martin Corp.&#39;}, &#39;L&#39;: {&#39;company&#39;: &#39;Loews Corp.&#39;}, &#39;LOW&#39;: {&#39;company&#39;: &#34;Lowe&#39;s Cos.&#34;}, &#39;LYB&#39;: {&#39;company&#39;: &#39;LyondellBasell&#39;}, &#39;MTB&#39;: {&#39;company&#39;: &#39;M&amp;T Bank Corp.&#39;}, &#39;M&#39;: {&#39;company&#39;: &#34;Macy&#39;s Inc.&#34;}, &#39;MRO&#39;: {&#39;company&#39;: &#39;Marathon Oil Corp.&#39;}, &#39;MPC&#39;: {&#39;company&#39;: &#39;Marathon Petroleum&#39;}, &#39;MKTX&#39;: {&#39;company&#39;: &#39;MarketAxess&#39;}, &#39;MAR&#39;: {&#39;company&#39;: &#34;Marriott Int&#39;l.&#34;}, &#39;MMC&#39;: {&#39;company&#39;: &#39;Marsh &amp; McLennan&#39;}, &#39;MLM&#39;: {&#39;company&#39;: &#39;Martin Marietta Materials&#39;}, &#39;MAS&#39;: {&#39;company&#39;: &#39;Masco Corp.&#39;}, &#39;MA&#39;: {&#39;company&#39;: &#39;Mastercard Inc.&#39;}, &#39;MKC&#39;: {&#39;company&#39;: &#39;McCormick &amp; Co.&#39;}, &#39;MXIM&#39;: {&#39;company&#39;: &#39;Maxim Integrated Products Inc&#39;}, &#39;MCD&#39;: {&#39;company&#39;: &#34;McDonald&#39;s Corp.&#34;}, &#39;MCK&#39;: {&#39;company&#39;: &#39;McKesson Corp.&#39;}, &#39;MDT&#39;: {&#39;company&#39;: &#39;Medtronic plc&#39;}, &#39;MRK&#39;: {&#39;company&#39;: &#39;Merck &amp; Co.&#39;}, &#39;MET&#39;: {&#39;company&#39;: &#39;MetLife Inc.&#39;}, &#39;MTD&#39;: {&#39;company&#39;: &#39;Mettler Toledo&#39;}, &#39;MGM&#39;: {&#39;company&#39;: &#39;MGM Resorts International&#39;}, &#39;MCHP&#39;: {&#39;company&#39;: &#39;Microchip Technology&#39;}, &#39;MU&#39;: {&#39;company&#39;: &#39;Micron Technology&#39;}, &#39;MSFT&#39;: {&#39;company&#39;: &#39;Microsoft Corp.&#39;}, &#39;MAA&#39;: {&#39;company&#39;: &#39;Mid-America Apartments&#39;}, &#39;MHK&#39;: {&#39;company&#39;: &#39;Mohawk Industries&#39;}, &#39;TAP&#39;: {&#39;company&#39;: &#39;Molson Coors Brewing Company&#39;}, &#39;MDLZ&#39;: {&#39;company&#39;: &#39;Mondelez International&#39;}, &#39;MNST&#39;: {&#39;company&#39;: &#39;Monster Beverage&#39;}, &#39;MCO&#39;: {&#39;company&#39;: &#34;Moody&#39;s Corp&#34;}, &#39;MS&#39;: {&#39;company&#39;: &#39;Morgan Stanley&#39;}, &#39;MOS&#39;: {&#39;company&#39;: &#39;The Mosaic Company&#39;}, &#39;MSI&#39;: {&#39;company&#39;: &#39;Motorola Solutions Inc.&#39;}, &#39;MSCI&#39;: {&#39;company&#39;: &#39;MSCI Inc&#39;}, &#39;MYL&#39;: {&#39;company&#39;: &#39;Mylan N.V.&#39;}, &#39;NDAQ&#39;: {&#39;company&#39;: &#39;Nasdaq, Inc.&#39;}, &#39;NOV&#39;: {&#39;company&#39;: &#39;National Oilwell Varco Inc.&#39;}, &#39;NTAP&#39;: {&#39;company&#39;: &#39;NetApp&#39;}, &#39;NFLX&#39;: {&#39;company&#39;: &#39;Netflix Inc.&#39;}, &#39;NWL&#39;: {&#39;company&#39;: &#39;Newell Brands&#39;}, &#39;NEM&#39;: {&#39;company&#39;: &#39;Newmont Goldcorp&#39;}, &#39;NWSA&#39;: {&#39;company&#39;: &#39;News Corp. Class A&#39;}, &#39;NWS&#39;: {&#39;company&#39;: &#39;News Corp. Class B&#39;}, &#39;NEE&#39;: {&#39;company&#39;: &#39;NextEra Energy&#39;}, &#39;NLSN&#39;: {&#39;company&#39;: &#39;Nielsen Holdings&#39;}, &#39;NKE&#39;: {&#39;company&#39;: &#39;Nike&#39;}, &#39;NI&#39;: {&#39;company&#39;: &#39;NiSource Inc.&#39;}, &#39;NBL&#39;: {&#39;company&#39;: &#39;Noble Energy Inc&#39;}, &#39;JWN&#39;: {&#39;company&#39;: &#39;Nordstrom&#39;}, &#39;NSC&#39;: {&#39;company&#39;: &#39;Norfolk Southern Corp.&#39;}, &#39;NTRS&#39;: {&#39;company&#39;: &#39;Northern Trust Corp.&#39;}, &#39;NOC&#39;: {&#39;company&#39;: &#39;Northrop Grumman&#39;}, &#39;NLOK&#39;: {&#39;company&#39;: &#39;NortonLifeLock&#39;}, &#39;NCLH&#39;: {&#39;company&#39;: &#39;Norwegian Cruise Line Holdings&#39;}, &#39;NRG&#39;: {&#39;company&#39;: &#39;NRG Energy&#39;}, &#39;NUE&#39;: {&#39;company&#39;: &#39;Nucor Corp.&#39;}, &#39;NVDA&#39;: {&#39;company&#39;: &#39;Nvidia Corporation&#39;}, &#39;NVR&#39;: {&#39;company&#39;: &#39;NVR Inc&#39;}, &#39;ORLY&#39;: {&#39;company&#39;: &#34;O&#39;Reilly Automotive&#34;}, &#39;OXY&#39;: {&#39;company&#39;: &#39;Occidental Petroleum&#39;}, &#39;ODFL&#39;: {&#39;company&#39;: &#39;Old Dominion Freight Line&#39;}, &#39;OMC&#39;: {&#39;company&#39;: &#39;Omnicom Group&#39;}, &#39;OKE&#39;: {&#39;company&#39;: &#39;ONEOK&#39;}, &#39;ORCL&#39;: {&#39;company&#39;: &#39;Oracle Corp.&#39;}, &#39;PCAR&#39;: {&#39;company&#39;: &#39;PACCAR Inc.&#39;}, &#39;PKG&#39;: {&#39;company&#39;: &#39;Packaging Corporation of America&#39;}, &#39;PH&#39;: {&#39;company&#39;: &#39;Parker-Hannifin&#39;}, &#39;PAYX&#39;: {&#39;company&#39;: &#39;Paychex Inc.&#39;}, &#39;PYPL&#39;: {&#39;company&#39;: &#39;PayPal&#39;}, &#39;PNR&#39;: {&#39;company&#39;: &#39;Pentair plc&#39;}, &#39;PBCT&#39;: {&#39;company&#39;: &#34;People&#39;s United Financial&#34;}, &#39;PEP&#39;: {&#39;company&#39;: &#39;PepsiCo Inc.&#39;}, &#39;PKI&#39;: {&#39;company&#39;: &#39;PerkinElmer&#39;}, &#39;PRGO&#39;: {&#39;company&#39;: &#39;Perrigo&#39;}, &#39;PFE&#39;: {&#39;company&#39;: &#39;Pfizer Inc.&#39;}, &#39;PM&#39;: {&#39;company&#39;: &#39;Philip Morris International&#39;}, &#39;PSX&#39;: {&#39;company&#39;: &#39;Phillips 66&#39;}, &#39;PNW&#39;: {&#39;company&#39;: &#39;Pinnacle West Capital&#39;}, &#39;PXD&#39;: {&#39;company&#39;: &#39;Pioneer Natural Resources&#39;}, &#39;PNC&#39;: {&#39;company&#39;: &#39;PNC Financial Services&#39;}, &#39;PPG&#39;: {&#39;company&#39;: &#39;PPG Industries&#39;}, &#39;PPL&#39;: {&#39;company&#39;: &#39;PPL Corp.&#39;}, &#39;PFG&#39;: {&#39;company&#39;: &#39;Principal Financial Group&#39;}, &#39;PG&#39;: {&#39;company&#39;: &#39;Procter &amp; Gamble&#39;}, &#39;PGR&#39;: {&#39;company&#39;: &#39;Progressive Corp.&#39;}, &#39;PLD&#39;: {&#39;company&#39;: &#39;Prologis&#39;}, &#39;PRU&#39;: {&#39;company&#39;: &#39;Prudential Financial&#39;}, &#39;PEG&#39;: {&#39;company&#39;: &#39;Public Serv. Enterprise Inc.&#39;}, &#39;PSA&#39;: {&#39;company&#39;: &#39;Public Storage&#39;}, &#39;PHM&#39;: {&#39;company&#39;: &#39;Pulte Homes Inc.&#39;}, &#39;PVH&#39;: {&#39;company&#39;: &#39;PVH Corp.&#39;}, &#39;QRVO&#39;: {&#39;company&#39;: &#39;Qorvo&#39;}, &#39;PWR&#39;: {&#39;company&#39;: &#39;Quanta Services Inc.&#39;}, &#39;QCOM&#39;: {&#39;company&#39;: &#39;QUALCOMM Inc.&#39;}, &#39;DGX&#39;: {&#39;company&#39;: &#39;Quest Diagnostics&#39;}, &#39;RL&#39;: {&#39;company&#39;: &#39;Ralph Lauren Corporation&#39;}, &#39;RJF&#39;: {&#39;company&#39;: &#39;Raymond James Financial Inc.&#39;}, &#39;RTN&#39;: {&#39;company&#39;: &#39;Raytheon Co.&#39;}, &#39;O&#39;: {&#39;company&#39;: &#39;Realty Income Corporation&#39;}, &#39;REG&#39;: {&#39;company&#39;: &#39;Regency Centers Corporation&#39;}, &#39;REGN&#39;: {&#39;company&#39;: &#39;Regeneron Pharmaceuticals&#39;}, &#39;RF&#39;: {&#39;company&#39;: &#39;Regions Financial Corp.&#39;}, &#39;RSG&#39;: {&#39;company&#39;: &#39;Republic Services Inc&#39;}, &#39;RMD&#39;: {&#39;company&#39;: &#39;ResMed&#39;}, &#39;RHI&#39;: {&#39;company&#39;: &#39;Robert Half International&#39;}, &#39;ROK&#39;: {&#39;company&#39;: &#39;Rockwell Automation Inc.&#39;}, &#39;ROL&#39;: {&#39;company&#39;: &#39;Rollins Inc.&#39;}, &#39;ROP&#39;: {&#39;company&#39;: &#39;Roper Technologies&#39;}, &#39;ROST&#39;: {&#39;company&#39;: &#39;Ross Stores&#39;}, &#39;RCL&#39;: {&#39;company&#39;: &#39;Royal Caribbean Cruises Ltd&#39;}, &#39;SPGI&#39;: {&#39;company&#39;: &#39;S&amp;P Global, Inc.&#39;}, &#39;CRM&#39;: {&#39;company&#39;: &#39;Salesforce.com&#39;}, &#39;SBAC&#39;: {&#39;company&#39;: &#39;SBA Communications&#39;}, &#39;SLB&#39;: {&#39;company&#39;: &#39;Schlumberger Ltd.&#39;}, &#39;STX&#39;: {&#39;company&#39;: &#39;Seagate Technology&#39;}, &#39;SEE&#39;: {&#39;company&#39;: &#39;Sealed Air&#39;}, &#39;SRE&#39;: {&#39;company&#39;: &#39;Sempra Energy&#39;}, &#39;NOW&#39;: {&#39;company&#39;: &#39;ServiceNow&#39;}, &#39;SHW&#39;: {&#39;company&#39;: &#39;Sherwin-Williams&#39;}, &#39;SPG&#39;: {&#39;company&#39;: &#39;Simon Property Group Inc&#39;}, &#39;SWKS&#39;: {&#39;company&#39;: &#39;Skyworks Solutions&#39;}, &#39;SLG&#39;: {&#39;company&#39;: &#39;SL Green Realty&#39;}, &#39;SNA&#39;: {&#39;company&#39;: &#39;Snap-on&#39;}, &#39;SO&#39;: {&#39;company&#39;: &#39;Southern Co.&#39;}, &#39;LUV&#39;: {&#39;company&#39;: &#39;Southwest Airlines&#39;}, &#39;SWK&#39;: {&#39;company&#39;: &#39;Stanley Black &amp; Decker&#39;}, &#39;SBUX&#39;: {&#39;company&#39;: &#39;Starbucks Corp.&#39;}, &#39;STT&#39;: {&#39;company&#39;: &#39;State Street Corp.&#39;}, &#39;STE&#39;: {&#39;company&#39;: &#39;STERIS plc&#39;}, &#39;SYK&#39;: {&#39;company&#39;: &#39;Stryker Corp.&#39;}, &#39;SIVB&#39;: {&#39;company&#39;: &#39;SVB Financial&#39;}, &#39;SYF&#39;: {&#39;company&#39;: &#39;Synchrony Financial&#39;}, &#39;SNPS&#39;: {&#39;company&#39;: &#39;Synopsys Inc.&#39;}, &#39;SYY&#39;: {&#39;company&#39;: &#39;Sysco Corp.&#39;}, &#39;TMUS&#39;: {&#39;company&#39;: &#39;T-Mobile US&#39;}, &#39;TROW&#39;: {&#39;company&#39;: &#39;T. Rowe Price Group&#39;}, &#39;TTWO&#39;: {&#39;company&#39;: &#39;Take-Two Interactive&#39;}, &#39;TPR&#39;: {&#39;company&#39;: &#39;Tapestry, Inc.&#39;}, &#39;TGT&#39;: {&#39;company&#39;: &#39;Target Corp.&#39;}, &#39;TEL&#39;: {&#39;company&#39;: &#39;TE Connectivity Ltd.&#39;}, &#39;FTI&#39;: {&#39;company&#39;: &#39;TechnipFMC&#39;}, &#39;TFX&#39;: {&#39;company&#39;: &#39;Teleflex&#39;}, &#39;TXN&#39;: {&#39;company&#39;: &#39;Texas Instruments&#39;}, &#39;TXT&#39;: {&#39;company&#39;: &#39;Textron Inc.&#39;}, &#39;TMO&#39;: {&#39;company&#39;: &#39;Thermo Fisher Scientific&#39;}, &#39;TIF&#39;: {&#39;company&#39;: &#39;Tiffany &amp; Co.&#39;}, &#39;TJX&#39;: {&#39;company&#39;: &#39;TJX Companies Inc.&#39;}, &#39;TSCO&#39;: {&#39;company&#39;: &#39;Tractor Supply Company&#39;}, &#39;TDG&#39;: {&#39;company&#39;: &#39;TransDigm Group&#39;}, &#39;TRV&#39;: {&#39;company&#39;: &#39;The Travelers Companies Inc.&#39;}, &#39;TFC&#39;: {&#39;company&#39;: &#39;Truist Financial&#39;}, &#39;TWTR&#39;: {&#39;company&#39;: &#39;Twitter, Inc.&#39;}, &#39;TSN&#39;: {&#39;company&#39;: &#39;Tyson Foods&#39;}, &#39;UDR&#39;: {&#39;company&#39;: &#39;UDR, Inc.&#39;}, &#39;ULTA&#39;: {&#39;company&#39;: &#39;Ulta Beauty&#39;}, &#39;USB&#39;: {&#39;company&#39;: &#39;U.S. Bancorp&#39;}, &#39;UAA&#39;: {&#39;company&#39;: &#39;Under Armour Class A&#39;}, &#39;UA&#39;: {&#39;company&#39;: &#39;Under Armour Class C&#39;}, &#39;UNP&#39;: {&#39;company&#39;: &#39;Union Pacific Corp&#39;}, &#39;UAL&#39;: {&#39;company&#39;: &#39;United Airlines Holdings&#39;}, &#39;UNH&#39;: {&#39;company&#39;: &#39;United Health Group Inc.&#39;}, &#39;UPS&#39;: {&#39;company&#39;: &#39;United Parcel Service&#39;}, &#39;URI&#39;: {&#39;company&#39;: &#39;United Rentals, Inc.&#39;}, &#39;UTX&#39;: {&#39;company&#39;: &#39;United Technologies&#39;}, &#39;UHS&#39;: {&#39;company&#39;: &#39;Universal Health Services, Inc.&#39;}, &#39;UNM&#39;: {&#39;company&#39;: &#39;Unum Group&#39;}, &#39;VFC&#39;: {&#39;company&#39;: &#39;V.F. Corp.&#39;}, &#39;VLO&#39;: {&#39;company&#39;: &#39;Valero Energy&#39;}, &#39;VAR&#39;: {&#39;company&#39;: &#39;Varian Medical Systems&#39;}, &#39;VTR&#39;: {&#39;company&#39;: &#39;Ventas Inc&#39;}, &#39;VRSN&#39;: {&#39;company&#39;: &#39;Verisign Inc.&#39;}, &#39;VRSK&#39;: {&#39;company&#39;: &#39;Verisk Analytics&#39;}, &#39;VZ&#39;: {&#39;company&#39;: &#39;Verizon Communications&#39;}, &#39;VRTX&#39;: {&#39;company&#39;: &#39;Vertex Pharmaceuticals Inc&#39;}, &#39;VIAC&#39;: {&#39;company&#39;: &#39;ViacomCBS&#39;}, &#39;V&#39;: {&#39;company&#39;: &#39;Visa Inc.&#39;}, &#39;VNO&#39;: {&#39;company&#39;: &#39;Vornado Realty Trust&#39;}, &#39;VMC&#39;: {&#39;company&#39;: &#39;Vulcan Materials&#39;}, &#39;WRB&#39;: {&#39;company&#39;: &#39;W. R. Berkley Corporation&#39;}, &#39;WAB&#39;: {&#39;company&#39;: &#39;Wabtec Corporation&#39;}, &#39;WMT&#39;: {&#39;company&#39;: &#39;Walmart&#39;}, &#39;WBA&#39;: {&#39;company&#39;: &#39;Walgreens Boots Alliance&#39;}, &#39;DIS&#39;: {&#39;company&#39;: &#39;The Walt Disney Company&#39;}, &#39;WM&#39;: {&#39;company&#39;: &#39;Waste Management Inc.&#39;}, &#39;WAT&#39;: {&#39;company&#39;: &#39;Waters Corporation&#39;}, &#39;WEC&#39;: {&#39;company&#39;: &#39;Wec Energy Group Inc&#39;}, &#39;WCG&#39;: {&#39;company&#39;: &#39;WellCare&#39;}, &#39;WFC&#39;: {&#39;company&#39;: &#39;Wells Fargo&#39;}, &#39;WELL&#39;: {&#39;company&#39;: &#39;Welltower Inc.&#39;}, &#39;WDC&#39;: {&#39;company&#39;: &#39;Western Digital&#39;}, &#39;WU&#39;: {&#39;company&#39;: &#39;Western Union Co&#39;}, &#39;WRK&#39;: {&#39;company&#39;: &#39;WestRock&#39;}, &#39;WY&#39;: {&#39;company&#39;: &#39;Weyerhaeuser&#39;}, &#39;WHR&#39;: {&#39;company&#39;: &#39;Whirlpool Corp.&#39;}, &#39;WMB&#39;: {&#39;company&#39;: &#39;Williams Cos.&#39;}, &#39;WLTW&#39;: {&#39;company&#39;: &#39;Willis Towers Watson&#39;}, &#39;WYNN&#39;: {&#39;company&#39;: &#39;Wynn Resorts Ltd&#39;}, &#39;XEL&#39;: {&#39;company&#39;: &#39;Xcel Energy Inc&#39;}, &#39;XRX&#39;: {&#39;company&#39;: &#39;Xerox&#39;}, &#39;XLNX&#39;: {&#39;company&#39;: &#39;Xilinx&#39;}, &#39;XYL&#39;: {&#39;company&#39;: &#39;Xylem Inc.&#39;}, &#39;YUM&#39;: {&#39;company&#39;: &#39;Yum! Brands Inc&#39;}, &#39;ZBRA&#39;: {&#39;company&#39;: &#39;Zebra Technologies&#39;}, &#39;ZBH&#39;: {&#39;company&#39;: &#39;Zimmer Biomet Holdings&#39;}, &#39;ZION&#39;: {&#39;company&#39;: &#39;Zions Bancorp&#39;}, &#39;ZTS&#39;: {&#39;company&#39;: &#39;Zoetis&#39;}}-->
+	<h1>ohcl </h1>
+	
+	<form>
+		<select name='ohcl' style="padding-right:50px;padding-left:50px">
+			<option value='open'>open</option>
+			<option value='high'>high</option>
+			<option value='close'>close</option>
+			<option value='low'>low</option>
+			<option value='vol'>volume</option>
+		</select>
+		<input type="text"> تعداد کندل:</input>
+		
+	</form
+	
+</body>
+</html>
