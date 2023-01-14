@@ -4,6 +4,7 @@ from payment import views
 
 urlpatterns=[
        path('',views.home,name="home"),
+       path('economic',views.economic,name="economic"),
        #tranfer argument to view function 
        path('create/<pk>',views.create_payment,name="create_payment"),
        #tranfer pk views to url path(reverse)
