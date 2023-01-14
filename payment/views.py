@@ -139,4 +139,6 @@ def binance_payment():
        
        response=requests.post(json_request,headers=headers)
        
-       
+  def  economic(request):
+       return render(request,'economic.html',context={})
+
