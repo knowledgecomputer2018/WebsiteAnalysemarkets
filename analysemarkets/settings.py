@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-466_lhccdrq=7oo)j87ik0k6tujgmo20euo*kpx)u_+0_251(n
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['http://analysebazar.runflare.run/']
+ALLOWED_HOSTS = ['analysebazar.runflare.run']
 
 
 # Application definition
